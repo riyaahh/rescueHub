@@ -6,9 +6,10 @@
 <!--bootstrap is for checking the layout-->
 {% block content %}
 
-<link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
-<link rel="stylesheet" href="css/layout.css" type="text/css" media="all">
-<link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+<link rel="stylesheet" href= "{% static 'css/reset.css' %}">
+
+<link rel="stylesheet" href="{% static 'css/layout.css' %}">
+<link rel="stylesheet" href= "{% static 'css/style.css' %}">
 
 <!--[if lt IE 9]>
 <script type="text/javascript" src="js/html5.js"></script>
@@ -21,15 +22,8 @@
     <!-- header -->
     <header>
       <div class="wrapper">
-        <h1><a href="index.html" id="logo">Hope Center</a></h1>
-        <nav>
-          <ul id="top_nav">
-            <li><a href="index.html"><img src="images/top_icon1.gif" alt=""></a></li>
-            <li><a href="#"><img src="images/top_icon2.gif" alt=""></a></li>
-            <li class="end"><a href="contact.html"><img src="images/top_icon3.gif" alt=""></a></li>
-          </ul>
-        </nav>
-        <nav>
+        {% comment %} <h1><a href="index.html" id="logo">Hope Center</a></h1>
+        
           <ul id="menu">
             <li id="menu_active"><a href="index.html">Home</a></li>
             <li><a href="mission.html">Our Mission</a></li>
@@ -37,23 +31,23 @@
             <li><a href="help.html">How to Help</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
-        </nav>
+        </nav> {% endcomment %}
       </div>
       <div class="slider">
         <ul class="items">
-          <li> <img src="images/img1.jpg" alt="">
+          <li> <img src="{% static '/images/pharma/img1.jpg' %}" alt="Image placeholder">
             <div class="banner">
               <div class="wrapper"><span>“Our<em>Mission</em>is to<em>Help</em></span></div>
               <div class="wrapper"><strong>Those Who<em>Need</em>It”</strong></div>
             </div>
           </li>
-          <li> <img src="images/img2.jpg" alt="">
+          <li> <img src="{% static '/images/pharma/img2.jpg' %}" alt="Image placeholder">
             <div class="banner">
               <div class="wrapper"><span>“MAKE all the CHILDREN</span></div>
               <div class="wrapper"><strong>of the World HAPPY”</strong></div>
             </div>
           </li>
-          <li> <img src="images/img3.jpg" alt="">
+          <li> <img src="{% static '/images/pharma/img3.jpg' %}" alt="Image placeholder">
             <div class="banner">
               <div class="wrapper"><span>“TOGETHER we can CHANGE</span></div>
               <div class="wrapper"><strong>Many Young LIVES”</strong></div>
@@ -77,19 +71,19 @@
               <section class="col1">
                 <h2><strong>T</strong>rue<span>Story 1</span></h2>
                 <div class="pad_bot1">
-                  <figure><img src="images/page1_img1.jpg" alt=""></figure>
+                  <figure><img src="{% static '/images/pharma/page1_img1.jpg' %}" alt="Image placeholder"></figure>
                 </div>
                 Hope Center is one of free website tem- plates by TemplateMonster.com, opti- mized for 1024X768 res. <a href="#" class="button1">Read More</a> </section>
               <section class="col1 pad_left1">
                 <h2 class="color2"><strong>T</strong>rue<span>Story 2</span></h2>
                 <div class="pad_bot1">
-                  <figure><img src="images/page1_img2.jpg" alt=""></figure>
+                  <figure><img src="{% static '/images/pharma/page1_img2.jpg' %}" alt=""></figure>
                 </div>
                 This Hope Center Template goes with two packages – with PSD source files and without them.<a href="#" class="button1 color2">Read More</a> </section>
               <section class="col1 pad_left1">
                 <h2 class="color3"><strong>T</strong>rue<span>Story 3</span></h2>
                 <div class="pad_bot1">
-                  <figure><img src="images/page1_img3.jpg" alt=""></figure>
+                  <figure><img src="{% static '/images/pharma/page1_img3.jpg' %}" alt=""></figure>
                 </div>
                 This website template has several pages:<a href="index.html" class="link1">Home</a>,<a href="mission.html" class="link1">Our Mission</a>,<a href="news.html" class="link1">News and Press</a>,<a href="help.html" class="link1">How to Help</a>,<a href="contact.html" class="link1">Contact Us</a>.<a href="#" class="button1 color3">Read More</a> </section>
             </div>
@@ -198,7 +192,21 @@ $(window).load(function () {
     })
 })
 
-<script type="text/javascript" src="js/jquery-1.6.js"></script>
+<script src="{% static 'js/cufon-yui.js' %}"></script>
+<script src="{% static 'js/cufon-replace.js' %}"></script>
+<script src="{% static 'js/Vegur_700.font.js' %}"></script>
+<script src="{% static 'js/Vegur_400.font.js' %}"></script>
+<script src="{% static 'js/Vegur_300.font.js' %}"></script>
+<script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+<script src="{% static 'js/tms-0.3.js.js' %}"></script>
+<script src="{% static 'js/tms_presets.js' %}"></script>
+<script src="{% static 'js/backgroundPosition.js' %}"></script>
+<script src="{% static 'js/atooltip.jquery.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+
+
+
+
 <script type="text/javascript" src="js/cufon-yui.js"></script>
 <script type="text/javascript" src="js/cufon-replace.js"></script>
 <script type="text/javascript" src="js/Vegur_700.font.js"></script>
