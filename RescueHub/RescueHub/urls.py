@@ -21,7 +21,7 @@ from AidTogether.views import index,contact
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
-    # path('',index, name='index'),
-    path(' ',include("AidTogether.urls"))
+    path('',index, name='index'),
+    # path(' ',views.index,name="index")
 ]
 
