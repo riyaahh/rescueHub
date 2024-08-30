@@ -10,3 +10,7 @@ def login(request):
     return render(request, 'login.html',context={})
 def mission(request):
     return render(request,'mission.html',context={})
+def help(request):
+    return render(request,'help.html',context={})
+def news(request):
+    return render(request,'news.html',context={})
