@@ -23,5 +23,8 @@ from AidTogether.views import index,contact
 urlpatterns = [
     #path('admin/', admin.site.urls),
     path('', include('AidTogether.urls')),
+    path('Volunteers/', include('Volunteers.urls')),
+    path('Organisations/', include('Organisations.urls')),
+    path('ReliefCamps/', include('ReliefCamps.urls'))
 ]
 
