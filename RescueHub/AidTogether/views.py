@@ -8,6 +8,8 @@ def contact(request):
     return render(request, 'contact.html',context={})
 def login(request):
     return render(request, 'login.html',context={})
+def registration(request):
+    return render(request, 'registration.html',context={})
 def mission(request):
     return render(request,'mission.html',context={})
 def help(request):
