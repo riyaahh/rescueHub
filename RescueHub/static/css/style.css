@@ -17,18 +17,18 @@ mark, rp, rt, ruby, summary, time {
 	overflow:hidden
 }
 /* Global properties ======================================================== */
-body {
+/* body {
 	background:url(../images/bg.jpg) top center repeat;
 	border:0;
 	font:14px "Trebuchet MS", Arial, Helvetica, sans-serif;
 	color:#575652;
 	line-height:22px
-}
+} */
 .ic, .ic a {
 	border:0;
 	float:right;
 	background:#fff;
-	color:#f00;
+	color:rgb(237, 231, 231);
 	width:50%;
 	line-height:10px;
 	font-size:10px;
@@ -48,14 +48,15 @@ body {
 /* Global Structure ============================================================= */
 .main {
 	margin:0 auto;
-	width:940px
+	width:940 px
+	
 }
-.body1 {
+/* .body1 {
 	background:url(../images/bg_top.gif) top repeat-x
-}
+} */
 /* ============================= main layout ====================== */
 a {
-	color:#575652;
+	color:white;
 	text-decoration:underline;
 	outline:none
 }
@@ -215,7 +216,7 @@ header {
 	font-size:50px;
 	line-height:1.2em;
 	font-weight:400;
-	color:#fff;
+	color:#f5f1f1;
 	text-decoration:none;
 	text-transform:uppercase;
 	letter-spacing:-1px;
@@ -260,7 +261,7 @@ header {
 	float:right;
 	padding:0 32px;
 	margin-bottom:5px;
-	background:#000;
+	background:#efe8e8;
 	font-size:40px;
 	line-height:56px;
 	height:56px;
