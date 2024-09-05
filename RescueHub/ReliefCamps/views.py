@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def CampPortal(request):
+    return render(request,"ReliefCamps/CampPortal.html",context={})
