@@ -149,6 +149,17 @@ a:hover { color: #FF0; }
   background-image: url(../images/1.png);
 }
 
+.banner-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px; /* Adjust to your desired width */
+  height: 50px; /* Adjust to your desired height */
+  background-image: url("../images/logo.png"); /* Path to your overlay image */
+  background-size: cover; /* Ensure the image covers the entire area */
+}
+
 .baner-content h1 {
   margin-top: 0px;
   font-size: 128px;
@@ -245,7 +256,7 @@ h4, .h4 {
 
 .projects-content {
   padding-top: 20vh;
-  background-image: url(../images/3rd-section.jpg);
+  background-image: url(../images/Relief\ Photocentric\ Style.png);
 }
 
 .projects-content .item img {
