@@ -10,9 +10,14 @@
 <link rel="stylesheet" href="{% static 'css/templatemo-main.css' %}">
 <link rel="stylesheet" href="{% static 'css/owl-carousel.css' %}">
 
+<!-- Owl Carousel CSS -->
+<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 
 <script src="{% static 'js/vendor/modernizr-2.8.3-respond-1.4.2.min.js' %}"></script>
+
 {% endblock extrahead %}
 
 {% block content %}
@@ -293,7 +298,25 @@
         </div>
      </footer> 
 
+    
 
+     <!-- jQuery -->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <!-- Owl Carousel JS -->
+     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+     <!-- <script>
+         $(document).ready(function(){
+             $("#owl-testimonials").owlCarousel({
+                 items: 1,
+                 loop: true,
+                 autoplay: true,
+                 autoplayTimeout: 3000,
+                 autoplayHoverPause: true,
+                 nav: true,
+                 dots: true
+             });
+         });
+     </script> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
