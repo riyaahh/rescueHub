@@ -15,12 +15,13 @@
     <section class="wrapper">
         <div class="form signup">
             <header>Login</header>
-            <form action="#">
-                <input type="text" placeholder="Email address" required />
-                <input type="password" placeholder="Password" required />
+            <form method="POST" action="{% url 'login_access' %}">
+                {% csrf_token %}
+                <input type="text" placeholder="Email address" name = "email" required />
+                <input type="password" placeholder="Password" name = "password" required />
                 <a href="#">Forgot password?</a>
                 <div class="form-group">
-                    <select class="form-control">
+                    <select class="form-control" name = "role">
                         <option class="hidden"  selected disabled>Select User Type</option>
                         <option>Volunteer</option>
                         <option>Organisation</option>

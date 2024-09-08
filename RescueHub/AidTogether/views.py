@@ -2,10 +2,14 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.models import User
 from .models import VolunteerProfile
+from django.contrib.auth import authenticate
+from django.contrib.auth import login as auth_login
 
 # Create your views here.
 
 def index(request):
+    return render(request, 'index.html',context={})
+def home(request):
     return render(request, 'index.html',context={})
 def contact(request):
     return render(request, 'contact.html',context={})
@@ -57,6 +61,33 @@ def register_volunteer(request):
         # Log the user in after registration
         login(request, user)
 
-        return redirect('VolunteerPortal')  # Redirect to volunteer's dashboard
+        return redirect('home')  # Redirect to volunteer's dashboard
 
     return render(request, 'registration')
+
+def login_access(request):
+    if request.method == 'POST':
+        username = request.POST.get('email')
+        password = request.POST.get('password')
+        role = request.POST.get('role')
+        
+        user = authenticate(request, username=username, password=password)
+        
+        if user is not None:
+            # Log the user in
+            auth_login(request, user)
+
+            # Redirect based on user type
+            if role == 'volunteer':
+                return redirect('VolunteerPortal')
+            elif role == 'relief_camp':
+                return redirect('CampPortal') 
+            elif role == 'organisation':
+                return redirect('organisationPortal') 
+        else:
+            # Invalid credentials
+            return render(request, 'login', {'error': 'Invalid username or password'})
+
+    return render(request, 'login')
+        
+
