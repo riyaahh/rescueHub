@@ -156,7 +156,7 @@ a:hover { color: #FF0; }
   left: 0;
   width: 50px; /* Adjust to your desired width */
   height: 50px; /* Adjust to your desired height */
-  background-image: url("../images/logo.png"); /* Path to your overlay image */
+  background-image: url("images\logo.png"); /* Path to your overlay image */
   background-size: cover; /* Ensure the image covers the entire area */
 }
 
