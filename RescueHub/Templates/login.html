@@ -11,7 +11,7 @@
     <title>Login & Signup Form</title>
     <link rel="stylesheet" href="{% static 'css/login.css' %}" type="text/css">
 </head>
-<body>
+<body style="background-image: url({% static 'images\1.png' %});">
     <section class="wrapper">
         <div class="form signup">
             <header>Login</header>
@@ -19,15 +19,25 @@
                 {% csrf_token %}
                 <input type="text" placeholder="Email address" name = "email" required />
                 <input type="password" placeholder="Password" name = "password" required />
-                <a href="#">Forgot password?</a>
                 <div class="form-group">
-                    <select class="form-control" name = "role">
+                    <select class="" style="height: 50px;
+                        outline: none;
+                        border: none;
+                        margin-top: 0px;
+                        padding: 0 10px;
+                        font-size: 16px;
+                        font-weight: 400;
+                        color: #333;
+                        border-radius: 8px;
+                        background: #fff;" name = "role">
                         <option class="hidden"  selected disabled>Select User Type</option>
                         <option>Volunteer</option>
                         <option>Organisation</option>
                         <option>Relief Camp</option>
                     </select>
+                    
                 </div>
+                {% comment %} <a href="#">Forgot password?</a> {% endcomment %}
                 <input type="submit" value="Login" />
                 
             </form>

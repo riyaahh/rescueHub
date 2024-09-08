@@ -11,10 +11,10 @@ def index(request):
     return render(request, 'index.html',context={})
 def home(request):
     return render(request, 'index.html',context={})
+def user_login(request):
+    return render(request, 'login.html',context={})
 def contact(request):
     return render(request, 'contact.html',context={})
-def login_access(request):
-    return render(request, 'login.html',context={})
 def registration(request):
     return render(request, 'registration.html',context={})
 def mission(request):
@@ -71,7 +71,7 @@ def login_access(request):
         password = request.POST.get('password')
         role = request.POST.get('role')
         
-        user = authenticate(request, username=username, password=password)
+        user = authenticate(request, username=username, password=password, role=role)
         
         if user is not None:
             # Log the user in
@@ -86,8 +86,8 @@ def login_access(request):
                 return redirect('organisationPortal') 
         else:
             # Invalid credentials
-            return render(request, 'login', {'error': 'Invalid username or password'})
+            return render(request, 'user_login', {'error': 'Invalid username or password'})
 
-    return render(request, 'login')
+    return render(request, 'user_login')
         
 
