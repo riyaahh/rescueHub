@@ -147,18 +147,33 @@ a:hover { color: #FF0; }
   padding-top: 30vh;
   text-align: center;
   background-image: url(../images/1.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
 }
 
-.banner-content::before {
+.logo {
+  position: absolute;
+  top: 10px; /* Adjust the position as needed */
+  left: 10px; /* Adjust the position as needed */
+}
+
+.logo img {
+  height: 200px; /* Adjust the size as needed */
+}
+
+
+/* .banner-content::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 50px; /* Adjust to your desired width */
-  height: 50px; /* Adjust to your desired height */
-  background-image: url("images\logo.png"); /* Path to your overlay image */
-  background-size: cover; /* Ensure the image covers the entire area */
-}
+  /* height: 50px; /* Adjust to your desired height */
+  /* background-image: url("images\logo.png"); /* Path to your overlay image */
+  /* background-size: cover; /* Ensure the image covers the entire area */
+/* } */
 
 .baner-content h1 {
   margin-top: 0px;
