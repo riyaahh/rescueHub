@@ -1,9 +1,8 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login
 from django.contrib.auth.models import User
-from .models import VolunteerProfile
-from django.contrib.auth import authenticate
-from django.contrib.auth import login as auth_login
+from .models import VolunteerProfile, OrganisationProfile
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.hashers import make_password
 
 # Create your views here.
 
@@ -45,7 +44,8 @@ def register_volunteer(request):
             return render(request, 'registration', {'error': 'Email already registered'})
 
         # Create the user
-        user = User.objects.create_user(username=email, email=email, password=password)
+        user = User.objects.create(username=email, email=email, password=make_password(password.strip()))
+        user.save()
 
         # Create volunteer profile
         VolunteerProfile.objects.create(
@@ -55,7 +55,6 @@ def register_volunteer(request):
             address=address, 
             full_name=full_name, 
             gender=gender,
-            role='volunteer'  # Default role as volunteer
         )
 
         # Log the user in after registration
@@ -69,25 +68,80 @@ def login_access(request):
     if request.method == 'POST':
         username = request.POST.get('email')
         password = request.POST.get('password')
-        role = request.POST.get('role')
+        # role = request.POST.get('role')
         
-        user = authenticate(request, username=username, password=password, role=role)
+        # print(username, password)
+        user = authenticate(username=username, password=password.strip())
+        print(user)
         
         if user is not None:
             # Log the user in
-            auth_login(request, user)
+            login(request, user)
+            
+            if VolunteerProfile.objects.filter(user=request.user).exists():
+                # volunteer = VolunteerProfile.objects.get(user = request.user)
+                return redirect('VolunteerPortal')
+            elif OrganisationProfile.objects.filter(user=request.user).exists():
+                return redirect('organisationPortal')
+            else:
+                print("Invalid user")
+            
+                
 
             # Redirect based on user type
-            if role == 'volunteer':
-                return redirect('VolunteerPortal')
-            elif role == 'relief_camp':
-                return redirect('CampPortal') 
-            elif role == 'organisation':
-                return redirect('organisationPortal') 
+            # if role == 'volunteer':
+            #     return redirect('VolunteerPortal')
+            # elif role == 'relief_camp':
+            #     return redirect('CampPortal') 
+            # elif role == 'organisation':
+            #     return redirect('organisationPortal') 
         else:
             # Invalid credentials
-            return render(request, 'user_login', {'error': 'Invalid username or password'})
+            # return render(request, 'user_login', {'error': 'Invalid username or password'})
+            return redirect('user_login')
 
-    return render(request, 'user_login')
+    return redirect('user_login')
+
+#organisation registration
+def register_org(request):
+    if request.method == 'POST':
+        org_name = request.POST.get('org_name')
+        contact_person = request.POST.get('contact_person')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        confirm_password = request.POST.get('confirm_password')
+        phone = request.POST.get('phone')
+        address = request.POST.get('address')
+
+        # Check if passwords match
+        if password != confirm_password:
+            return render(request, 'registration', {'error': 'Passwords do not match'})
+
+        # Check if email is already used
+        if User.objects.filter(email=email).exists():
+            return render(request, 'registration', {'error': 'Email already registered'})
+
+        # Create the user
+        user = User.objects.create(username=email, email=email, password=make_password(password.strip()))
+        user.save()
+
+        # Create volunteer profile
+        OrganisationProfile.objects.create(
+            user=user,  
+            phone=phone, 
+            address=address, 
+            org_name = org_name,
+            contact_person=contact_person)
+
+            # role='volunteer'  # Default role as volunteer
+
+
+        # Log the user in after registration
+        login(request, user)
+
+        return redirect('home')  # Redirect to volunteer's dashboard
+
+    return render(request, 'registration')
+
         
 

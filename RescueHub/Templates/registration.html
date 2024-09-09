@@ -6,16 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link href="{% static 'css/register.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" type="text/css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body style="background-image: url({% static 'images\1.png' %});">
     <div class="container register">
         <div class="row">
             <div class="col-md-3 register-left">
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
-                <h3>Welcome</h3>
-                <p>You are 30 seconds away from earning your own money!</p>
+                <h3>RescueHub</h3>
+                <p>Rescue, Rebuild, Revitalize</p>
                 <a href="{% url 'user_login' %}">
                 <input type="submit" name="" value="Login"/><br/>
             </div>
@@ -83,7 +84,7 @@
                     <!-- Organisation Form -->
                     <div class="tab-pane fade" id="organisation" role="tabpanel" aria-labelledby="organisation-tab">
                         <h3 class="register-heading">Apply as an Organisation</h3>
-                        <form method="POST">
+                        <form method="POST" action="{% url 'oregister' %}">
                             {% csrf_token %}
                             <div class="row register-form">
                                 <div class="col-md-6">

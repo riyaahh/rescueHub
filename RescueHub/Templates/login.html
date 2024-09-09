@@ -1,6 +1,5 @@
 {% load static %}
 
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -19,7 +18,7 @@
                 {% csrf_token %}
                 <input type="text" placeholder="Email address" name = "email" required />
                 <input type="password" placeholder="Password" name = "password" required />
-                <div class="form-group">
+                {% comment %} <div class="form-group">
                     <select class="" style="height: 50px;
                         outline: none;
                         border: none;
@@ -36,7 +35,7 @@
                         <option>Relief Camp</option>
                     </select>
                     
-                </div>
+                </div> {% endcomment %}
                 {% comment %} <a href="#">Forgot password?</a> {% endcomment %}
                 <input type="submit" value="Login" />
                 

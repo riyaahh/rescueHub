@@ -8,19 +8,20 @@ class VolunteerProfile(models.Model):
     phone = models.CharField(max_length=15)
     address = models.TextField()
     gender = models.CharField(max_length=20)
-    role = models.CharField(max_length=20, choices=(
-        ('volunteer', 'Volunteer'),
-        ('organisation', 'Organisation'),
-        ('relief_camp', 'Relief Camp'),
-    ),default='volunteer')
+
 
     def __str__(self):
         return self.full_name
 
-# class OrganisationProfile(models.Model):
-#     user = models.OneToOneField(User, on_delete=models.CASCADE)
-#     contact_person = models.CharField(max_length=100)
-#     address = models.TextField()
+class OrganisationProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    org_name= models.CharField(max_length=100)
+    contact_person = models.CharField(max_length=100)
+    address = models.TextField()
+    phone =  models.CharField(max_length=15)
+    
+    def __str__(self):
+        return self.org_name
 
 # class ReliefCampProfile(models.Model):
 #     user = models.OneToOneField(User, on_delete=models.CASCADE)
