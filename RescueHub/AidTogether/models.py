@@ -23,9 +23,14 @@ class OrganisationProfile(models.Model):
     def __str__(self):
         return self.org_name
 
-# class ReliefCampProfile(models.Model):
-#     user = models.OneToOneField(User, on_delete=models.CASCADE)
-#     contact_person = models.CharField(max_length=100)
-#     address = models.TextField()
+class ReliefCampProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    camp_name= models.CharField(max_length=100)
+    contact_person = models.CharField(max_length=100)
+    address = models.TextField()
+    phone =  models.CharField(max_length=15)
+    
+    def __str__(self):
+        return self.org_name
 
 # Create your models here.

@@ -11,6 +11,7 @@ urlpatterns=[
     path('registration',views.registration,name="registration"),
     path('vregister', views.register_volunteer,name="vregister"),
     path('oregister', views.register_org,name="oregister"),
+    path('rregister', views.register_reliefcamp,name="rregister"),
     path('login_access', views.login_access,name="login_access"),
     
 

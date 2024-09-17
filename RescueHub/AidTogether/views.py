@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from .models import VolunteerProfile, OrganisationProfile
+from .models import VolunteerProfile, OrganisationProfile,ReliefCampProfile
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.hashers import make_password
 
@@ -83,6 +83,8 @@ def login_access(request):
                 return redirect('VolunteerPortal')
             elif OrganisationProfile.objects.filter(user=request.user).exists():
                 return redirect('organisationPortal')
+            elif ReliefCampProfile.objects.filter(user=request.user).exists():
+                return redirect('CampPortal')
             else:
                 print("Invalid user")
             
@@ -143,5 +145,45 @@ def register_org(request):
 
     return render(request, 'registration')
 
+
+#relief camp registration
+
+def register_reliefcamp(request):
+    if request.method == 'POST':
+        camp_name = request.POST.get('camp_name')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        confirm_password = request.POST.get('confirm_password')
+        contact_person= request.POST.get('contact_person')
+        phone = request.POST.get('phone')
+        address = request.POST.get('address')
+
+        # Check if passwords match
+        if password != confirm_password:
+            return render(request, 'registration', {'error': 'Passwords do not match'})
+
+        # Check if email is already used
+        if User.objects.filter(email=email).exists():
+            return render(request, 'registration', {'error': 'Email already registered'})
+
+        # Create the user
+        user = User.objects.create(username=email, email=email, password=make_password(password.strip()))
+        user.save()
+
+        # Create volunteer profile
+        ReliefCampProfile.objects.create(
+            user=user, 
+            phone=phone, 
+            address=address, 
+            camp_name=camp_name, 
+           contact_person=contact_person,
+        )
+
+        # Log the user in after registration
+        login(request, user)
+
+        return redirect('home')  # Redirect to volunteer's dashboard
+
+    return render(request, 'registration')
         
 
