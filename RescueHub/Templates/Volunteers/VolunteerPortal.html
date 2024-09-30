@@ -31,20 +31,21 @@
                     <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
                         <div class="row align-items-center">
                             <div class="col-lg-6 mb-4 mb-lg-0">
+                                {% for item in volunteer %}
+                                {% if item.user_id == user.id %}
                                 <!-- Placeholder image -->
                                 <img src="{% static 'images/placeholder.png' %}" height="400" width="400" alt="Profile Image">
                             </div>
                             <div class="col-lg-6 px-xl-10">
                                 <div class="bg-secondary d-lg-inline-block py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
-                                    <h3 class="h2 text-white mb-0">John Doe</h3>
-                                    <span class="text-primary">Customer</span>
+                                    <h3 class="h2 text-white mb-0">{{request.item.full_name}}</h3>
+                                    <span class="text-primary">Volunteer</span>
                                 </div>
                                 <ul class="list-unstyled mb-1-9">
-                                    <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">First Name:</span> John</li>
-                                    <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Last Name:</span> Doe</li>
-                                    <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Gender:</span> Male</li>
-                                    <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Email ID:</span> john.doe@example.com</li>
-                                    <li class="display-28"><span class="display-26 text-secondary me-2 font-weight-600">Phone No:</span> 123-456-7890</li>
+                                    <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">First Name:</span> {{request.user.full_name}}</li>
+                                    <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Gender:</span> {{item.gender}}</li>
+                                    <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Email ID:</span> {{request.user.email}}</li>
+                                    <li class="display-28"><span class="display-26 text-secondary me-2 font-weight-600">Phone No:</span>{{item.phone}}</li>
                                 </ul>
                                 <ul class="social-icon-style1 list-unstyled mb-0 ps-0">
                                     <li><a href="#!"><i class="ti-twitter-alt"></i></a></li>
@@ -52,15 +53,17 @@
                                     <li><a href="#!"><i class="ti-pinterest"></i></a></li>
                                     <li><a href="#!"><i class="ti-instagram"></i></a></li>
                                 </ul>
+                                {% endif %}
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-12 mb-4 mb-sm-5">
-                <!-- Placeholder for additional content -->
-            </div>
+            <!-- <div class="col-lg-12 mb-4 mb-sm-5">
+                
+            </div> -->
 
             
 
