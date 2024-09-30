@@ -1,0 +1,23 @@
+.custom-form {
+    padding-top: 100px;
+    position: relative;
+    border-radius: 12px;
+    background-color: rgb(41, 38, 35);
+    opacity: 70%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+
+.bg {
+    background-image: url('../images/1.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.txt {
+    font-size: 15px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: beige;
+
+}
