@@ -35,8 +35,10 @@
                                         <h4>{{ item.camp_name }}</h4>
                                         <p class="text-secondary mb-1">Relief Camp</p>
                                         <p class="text-muted font-size-sm">{{ item.address }}</p>
+                                        
                                         <button class="btn btn-primary">Add affected people details</button>
-                                        <button class="btn btn-outline-primary">Request Resources</button>
+                                        <!-- Button with Django URL linking to RequestForm view -->
+                                        <a href="{% url 'RequestForm' %}" class="btn btn-outline-primary">Request Resources</a>
                                     </div>
                                 {% endif %}
                             {% endfor %}
