@@ -613,3 +613,25 @@ footer nav {
 	font:12px "Trebuchet MS", Arial, Helvetica, sans-serif;
 	height:91px
 }
+
+
+
+#sidebar {
+    background-color: #4c6444; /* Sidebar background color */
+    color: white; /* Default text color */
+}
+
+#sidebar .nav-link {
+    color: white; /* Set text color for links */
+}
+
+#sidebar .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Optional: Light hover effect */
+}
+
+#sidebar .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.3); /* Optional: Active link background */
+    color: white; /* Ensure active link text is white */
+}
+
+

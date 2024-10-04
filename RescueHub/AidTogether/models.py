@@ -19,6 +19,7 @@ class OrganisationProfile(models.Model):
     contact_person = models.CharField(max_length=100)
     address = models.TextField()
     phone =  models.CharField(max_length=15)
+    org_image=models.ImageField(upload_to='profileimages/')
     
     def __str__(self):
         return self.org_name
