@@ -34,6 +34,7 @@ def register_volunteer(request):
         phone = request.POST.get('phone')
         address = request.POST.get('address')
         gender = request.POST.get('gender')
+        vol_image=request.POST.get('vol_image')
 
         # Check if passwords match
         if password != confirm_password:
@@ -55,6 +56,7 @@ def register_volunteer(request):
             address=address, 
             full_name=full_name, 
             gender=gender,
+            vol_image=vol_image,
         )
 
         # Log the user in after registration
@@ -159,6 +161,7 @@ def register_reliefcamp(request):
         contact_person= request.POST.get('contact_person')
         phone = request.POST.get('phone')
         address = request.POST.get('address')
+        camp_image=request.POST.get('camp_image')
 
         # Check if passwords match
         if password != confirm_password:
@@ -179,6 +182,7 @@ def register_reliefcamp(request):
             address=address, 
             camp_name=camp_name, 
            contact_person=contact_person,
+           camp_image=camp_image,
         )
 
         # Log the user in after registration
