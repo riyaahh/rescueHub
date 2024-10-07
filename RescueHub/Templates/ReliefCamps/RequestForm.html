@@ -9,91 +9,91 @@
 
 {% block content %}
 <div class="bg">
-    <form >
-        <div class="col-md-6 offset-md-3 custom-form txt">
-          <h2 class="text-center mb-4">Resource Request Form</h2>
+
+
+  <form method="POST" action="{% url 'Resource_Request' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="col-md-6 offset-md-3 custom-form txt">
+        <h2 class="text-center mb-4">Resource Request Form</h2>
+
+        <!-- Personal/Contact Information Section -->
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="CampName">Name of the Relief Camp</label>
+                <input type="text" class="form-control" id="CampName" name="CampName" placeholder="Enter the Camp Name">
+            </div>
           
-          <!-- Personal/Contact Information Section -->
-          <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="CampName">Name of the Relief Camp</label>
-              <input type="text" class="form-control" id="CampName" placeholder="Enter the Camp Name">
+                <label for="ph">Phone of Relief Camp</label>
+                <input type="tel" class="form-control" id="ph" name="ph" placeholder="Enter Phone Number of Relief camp">
             </div>
-      
+        </div>
+
+        <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="PoC">Person of Contact</label>
-              <input type="text" class="form-control" id="PoC" placeholder="Enter the name of PoC">
+                <label for="reqName">Name of the Requester</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter the name of Requester">
             </div>
-          </div>
-      
-          <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="email">Email</label>
-              <input type="email" class="form-control" id="email" placeholder="Email of PoC">
+                <label for="phone">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter your phone number">
             </div>
-      
+                <input type="email" class="form-control" id="CampName" name="CampEmail"  value={{ user.email }} hidden dosable>
+        </div>
+
+        <!-- Request Details Section -->
+        <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="phone">Phone Number</label>
-              <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
+                <label for="resource-type">Resource Type</label>
+                <select class="form-control" id="resource-type" name="resource_type">
+                    <option value="FOOD">Food</option>
+                    <option value="MEDICAL_SUPPLIES">Medical Supplies</option>
+                    <option value="VOLUNTEERS">Volunteers</option>
+                    <option value="EQUIPMENT">Equipment</option>
+                    <option value="SHELTER">Shelter</option>
+                </select>
             </div>
-          </div>
-      
-          <!-- Request Details Section -->
-          <div class="form-row">
-            <div class="form-group col-md-6">
-                <div class="form-group">
-                    <label for="resource-type">Resource Type</label>
-                    <select class="form-control" id="resource-type">
-                      <option>Food</option>
-                      <option>Medical Supplies</option>
-                      <option>Volunteers</option>
-                      <option>Equipment</option>
-                      <option>Shelter</option>
-                    </select>
-                  </div>
-                </div>
-      
             <div class="form-group col-md-6">
                 <label for="quantity">Quantity</label>
-                <input type="number" class="form-control" id="quantity" placeholder="Enter quantity">
+                <input type="number" class="form-control" id="quantity" name="quantity" placeholder="Enter quantity">
             </div>
-          </div>
-      
-          <div class="form-row">
-            <div class="form-group col-md-6">
-            <label for="reason">Request Details</label>
-            <textarea class="form-control" id="reason" rows="3" placeholder="Briefly explain your request"></textarea>
-          </div>
+        </div>
 
-          <div class="form-group col-md-6">
-            <label for="address">Address to be Delivered</label>
-            <textarea class="form-control" id="address" rows="3" placeholder="Enter your address with ZIP Code"></textarea>
-          </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="reason">Request Details</label>
+                <textarea class="form-control" id="reason" name="reason" rows="3" placeholder="Briefly explain your request"></textarea>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="address">Address to be Delivered</label>
+                <textarea class="form-control" id="address" name="address" rows="3" placeholder="Enter your address with ZIP Code"></textarea>
+            </div>
         </div>
-      
-          <div class="form-row">
+
+        <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="date">Requested By Date</label>
-              <input type="date" class="form-control" id="date">
+                <label for="date">Requested By Date</label>
+                <input type="date" class="form-control" id="date" name="date">
             </div>
-      
             <div class="form-group col-md-6">
-              <label for="urgency">Urgency Level</label>
-              <select class="form-control" id="urgency">
-                <option>Immediate</option>
-                <option>Next 24 Hours</option>
-                <option>Within a Week</option>
-              </select>
+                <label for="urgency">Urgency Level</label>
+                <select class="form-control" id="urgency" name="urgency">
+                    <option value="IMMEDIATE">Immediate</option>
+                    <option value="24_HOURS">Next 24 Hours</option>
+                    <option value="WEEK">Within a Week</option>
+                </select>
             </div>
-          </div>
-      
-      
-          <!-- Submit Button -->
-          <div class="text-center">
+        </div>
+
+        <!-- Submit Button -->
+        <div class="text-center">
             <button type="submit" class="btn btn-light">Submit Request</button>
-          </div>
         </div>
-      </form>
+    </div>
+</form>
+
+  
+          
       
       
 </div>

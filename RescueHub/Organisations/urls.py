@@ -4,5 +4,6 @@ from django.conf.urls.static import static
 from .import views
 
 urlpatterns=[
-    path('organisationPortal/',views.organisationPortal, name="organisationPortal"),
+    path('organisationPortal',views.organisationPortal, name="organisationPortal"),
+    path('ReqTable',views.ReqTable, name="ReqTable"),
 ]
