@@ -8,6 +8,7 @@ class VolunteerProfile(models.Model):
     phone = models.CharField(max_length=15)
     address = models.TextField()
     gender = models.CharField(max_length=20)
+    vol_image=models.ImageField(upload_to='profileimages')
 
 
     def __str__(self):
@@ -19,7 +20,7 @@ class OrganisationProfile(models.Model):
     contact_person = models.CharField(max_length=100)
     address = models.TextField()
     phone =  models.CharField(max_length=15)
-    org_image=models.ImageField(upload_to='profileimages/')
+    org_image=models.ImageField(upload_to='profileimages')
     
     def __str__(self):
         return self.org_name
@@ -30,6 +31,7 @@ class ReliefCampProfile(models.Model):
     contact_person = models.CharField(max_length=100)
     address = models.TextField()
     phone =  models.CharField(max_length=15)
+    camp_image=models.ImageField(upload_to='profileimages')
     
     def __str__(self):
         return self.org_name

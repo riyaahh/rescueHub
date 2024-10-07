@@ -18,13 +18,17 @@ from django.contrib import admin
 from django.urls import path,include
 
 from AidTogether.views import index,contact
-
+from . import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
-    #path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),    
     path('', include('AidTogether.urls')),
     path('Volunteers/', include('Volunteers.urls')),
     path('Organisations/', include('Organisations.urls')),
     path('ReliefCamps/', include('ReliefCamps.urls'))
 ]
 
+
+# urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,34 +1,29 @@
 {% extends 'Organisations/OrgBase.html' %} 
 {% load static %}
 
-
-
 {% block content %}
-<section class="bg-light">
-    <!-- <div class="container"> -->
-        <div class="row">
-            <!-- <div class="col-lg-12 mb-4 mb-sm-5 position-relative"> -->
-                <div class="card card-style1 border-0 position-absolute top-0 start-50 translate-middle-x" style="width: 600px;">
-                
-                    <!-- <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7"> -->
-                        <div class="row align-items-center">
-                            <div class="col-lg-4 mb-0 mb-lg-0">
-                                {% for item in organisation %}
-                                {% if item.user_id == user.id %}
+<section class="bg-light d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">  <!-- Increased column width to fit image and content -->
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 text-center">  <!-- Adjusted column for the image -->
+                        {% for item in organisation %}
+                            {% if item.user_id == user.id %}
                                 <!-- Placeholder image -->
-                                <img src="{{item.org_image.url}}" height="400" width="400" alt="Profile Image">
-                            </div>
-                            <div class="col-lg-6 px-xl-10">
+                                <img src="{{ item.org_image.url }}" height="400" width="400" alt="Profile Image" class="img-fluid">  <!-- Added img-fluid for responsiveness -->
                                 
-                                <div class="bg-secondary d-lg-inline-block py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
+                    </div>
+                    <div class="col-lg-6">  <!-- Adjusted column for organization details -->
+                                <div class="bg-secondary d-lg-inline-block py-1-9 px-1-9 px-sm-6 mb-1-9 rounded mt-4">
                                     <h3 class="h2 text-white mb-0">{{ item.org_name }}</h3>
                                     <span class="text-secondary">Organisation</span>
                                 </div>
-                                <ul class="list-unstyled mb-1-9">
+                                <ul class="list-unstyled mb-1-9 mt-3">
                                     <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Organisation Name:</span> {{ item.org_name }}</li>
-                                    <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Address:</span> {{ item.contact_address }}</li>
-                                    <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Email ID:</span> {{ item.address }}</li>
-                                    <li class="display-28"><span class="display-26 text-secondary me-2 font-weight-600">Phone No:</span>{{ item.phone }}</li>
+                                    <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Address:</span> {{ item.address }}</li>
+                                    <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Email ID:</span> {{ request.user.email }}</li>
+                                    <li class="display-28"><span class="display-26 text-secondary me-2 font-weight-600">Phone No:</span> {{ item.phone }}</li>
                                 </ul>
                                 <ul class="social-icon-style1 list-unstyled mb-0 ps-0">
                                     <li><a href="#!"><i class="ti-twitter-alt"></i></a></li>
@@ -36,14 +31,15 @@
                                     <li><a href="#!"><i class="ti-pinterest"></i></a></li>
                                     <li><a href="#!"><i class="ti-instagram"></i></a></li>
                                 </ul>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
-                        </div>
+                            {% endif %}
+                        {% endfor %}
+                        {% if not organisation %}
+                            <p>No organisation information available.</p>  <!-- Handle case when no organisation is found -->
+                        {% endif %}
                     </div>
                 </div>
-            <!-- </div> -->
+            </div>
         </div>
-    <!-- </div> -->
+    </div>
 </section>
 {% endblock content %}
