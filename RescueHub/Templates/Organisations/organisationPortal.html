@@ -1,45 +1,28 @@
-{% extends 'base.html' %} 
+{% extends 'Organisations/OrgBase.html' %} 
 {% load static %}
 
-{% block styles %}
-<link rel="stylesheet" href="{% static 'css/register.css' %}" />
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<!-- slider stylesheet -->
-<link rel="stylesheet" type="text/css" href="{% static 'css/owl.carousel.min.css' %}" />
-<!-- bootstrap core css -->
-<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
-<!-- font awesome style -->
-<link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}" />
-<!-- Custom styles for this template -->
-<link href="{% static 'css/style.css' %}" rel="stylesheet" />
-<!-- responsive style -->
-<link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
-<link rel="stylesheet" href="{% static 'owlcarousel/owl.carousel.min.css' %}">
-<link rel="stylesheet" href="{% static 'owlcarousel/owl.theme.default.min.css' %}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@1&family=Fasthand&family=Playfair+Display:ital,wght@0,700;1,500&display=swap" rel="stylesheet">
-{% endblock styles %}
+
 
 {% block content %}
 <section class="bg-light">
-    <div class="container">
+    <!-- <div class="container"> -->
         <div class="row">
-            <div class="col-lg-12 mb-4 mb-sm-5">
-                <div class="card card-style1 border-0">
-                    <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
+            <!-- <div class="col-lg-12 mb-4 mb-sm-5 position-relative"> -->
+                <div class="card card-style1 border-0 position-absolute top-0 start-50 translate-middle-x" style="width: 600px;">
+                
+                    <!-- <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7"> -->
                         <div class="row align-items-center">
-                            <div class="col-lg-6 mb-4 mb-lg-0">
-                                <!-- Placeholder image -->
-                                <img src="{% static 'images/placeholder.png' %}" height="400" width="400" alt="Profile Image">
-                            </div>
-                            <div class="col-lg-6 px-xl-10">
+                            <div class="col-lg-4 mb-0 mb-lg-0">
                                 {% for item in organisation %}
                                 {% if item.user_id == user.id %}
+                                <!-- Placeholder image -->
+                                <img src="{{item.org_image.url}}" height="400" width="400" alt="Profile Image">
+                            </div>
+                            <div class="col-lg-6 px-xl-10">
+                                
                                 <div class="bg-secondary d-lg-inline-block py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
                                     <h3 class="h2 text-white mb-0">{{ item.org_name }}</h3>
-                                    <span class="text-primary">Organisation</span>
+                                    <span class="text-secondary">Organisation</span>
                                 </div>
                                 <ul class="list-unstyled mb-1-9">
                                     <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Organisation Name:</span> {{ item.org_name }}</li>
@@ -59,8 +42,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            <!-- </div> -->
         </div>
-    </div>
+    <!-- </div> -->
 </section>
 {% endblock content %}

@@ -114,6 +114,7 @@ def register_org(request):
         confirm_password = request.POST.get('confirm_password')
         phone = request.POST.get('phone')
         address = request.POST.get('address')
+        org_image=request.FILES.get('image')
 
         # Check if passwords match
         if password != confirm_password:
@@ -133,7 +134,8 @@ def register_org(request):
             phone=phone, 
             address=address, 
             org_name = org_name,
-            contact_person=contact_person)
+            contact_person=contact_person,
+            org_image=org_image)
 
             # role='volunteer'  # Default role as volunteer
 

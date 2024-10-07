@@ -10,4 +10,4 @@ def organisationPortal(request):
     return render(request, 'Organisations/organisationPortal.html',context={'organisation':organisation})
 def ReqTable(request):   
     data = ResourceRequest.objects.all()
-    return render(request, 'Organisations/ReqTable.html',context={'data':data})
+    return render(request, 'Organisations/ReqTable.html',context={'data':data})  
