@@ -21,3 +21,15 @@
     color: beige;
 
 }
+.table{
+    width: 100%;
+    margin-bottom: 20%;
+    color: #f1f1dc;
+    opacity: 70%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding-top: 5%;
+    background-image: url('../images/1.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}

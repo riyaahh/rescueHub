@@ -26,8 +26,9 @@ body {
   padding: 20px
     30px
     120px;
-  background: #4c6444;
+  /* background: #4c6444; */
   /* background: #af5c41; */
+  background-color: rgb(42, 41, 40);
   opacity: 80%;
   box-shadow: 0
     5px
@@ -78,7 +79,7 @@ body {
 }
 .form.login
   header {
-  color: #4c6444;
+  color: rgb(41, 38, 35);
 
 }
 .wrapper.active
@@ -143,7 +144,7 @@ form
   color: #fff;
 }
 form a {
-  color: #4c6444;
+  color: rgb(41, 38, 35);
   text-decoration: none;
   opacity: 50%;
 }
@@ -161,7 +162,7 @@ form
 }
 .form.login
   input[type="submit"] {
-  background: #4c6444;
+  background: rgb(41, 38, 35);
   color: #fff;
   border: none;
   size: 50%;
