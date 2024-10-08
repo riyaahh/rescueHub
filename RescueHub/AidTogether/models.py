@@ -34,6 +34,6 @@ class ReliefCampProfile(models.Model):
     camp_image=models.ImageField(upload_to='profileimages')
     
     def __str__(self):
-        return self.org_name
+        return self.camp_name
 
 # Create your models here.

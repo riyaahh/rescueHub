@@ -13,6 +13,7 @@
     background-image: url('../images/1.png');
     background-repeat: no-repeat;
     background-position: center;
+   
 }
 
 .txt {
@@ -32,4 +33,53 @@
     background-repeat: no-repeat;
     background-position: center;
     
+}
+
+
+
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.profile-box {
+    display: flex;
+    opacity: 70%;
+    align-items: center;
+    background-color: rgb(41, 38, 35); /* Change this to your desired color */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 800px;
+    width: 100%;
+}
+
+.profile-image {
+    margin-right: 20px;
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-details h3 {
+    margin-bottom: 10px;
+    color: beige;
+}
+
+.profile-details span {
+    color:beige;
+}
+
+.profile-details ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.profile-details ul li {
+    margin-bottom: 10px;
+    color: beige;
 }
