@@ -6,4 +6,7 @@ from .import views
 urlpatterns=[
     path('organisationPortal',views.organisationPortal, name="organisationPortal"),
     path('ReqTable',views.ReqTable, name="ReqTable"),
+    path('denyRequest/<int:id>', views.denyRequest, name="denyRequest"),
+    path('acceptRequest/<int:id>', views.acceptRequest, name="acceptRequest"),
+
 ]

@@ -24,7 +24,9 @@
             <th scope="col">Address</th>
             <th scope="col">Request Date</th>
             <th scope="col">Urgency Level</th>
+            <th scope="col">Status</th>
             <th scope="col">Action</th>
+
         </tr>
     </thead>
     <tbody>
@@ -41,12 +43,32 @@
             <td>{{ i.delivery_address }}</td> 
             <td>{{ i.requested_by_date }}</td>
             <td>{{ i.urgency_level }}</td>
-            {% comment %} <td>
-                <!-- Example actions: Edit and Delete -->
-                <a href="{% url 'edit_request' i.id %}" class="btn btn-warning">Edit</a>
-                <a href="{% url 'delete_request' i.id %}" class="btn btn-danger">Delete</a>
+            <td>{{ i.status }}</td> 
+
+           
+            <td>
+              <div class="btn-group" role="group">
+                {% comment %} <button type="button" class="btn btn-success">Accept</button> {% endcomment %}
+                <a href="{% url 'denyRequest' i.id %}" class="btn btn-danger">Deny</a>
+                <a href="{% url 'acceptRequest' i.id %}" class="btn btn-info">Accept</a>
+
+              </div>
+            </td>
+            
+
+{% comment %} 
+            <td>
+              <div class="btn-group" role="group">
+                {% if i.status == 'Pending' %}
+                  <a href="{% url 'denyRequest' i.id %}" class="btn btn-danger">Deny</a>
+                  <a href="{% url 'acceptRequest' i.id %}" class="btn btn-info">Accept</a>
+                {% else %}
+                  <span class="text-muted">{{ i.status }}</span>  <!-- Display status if already processed -->
+                {% endif %}
+              </div>
             </td> {% endcomment %}
-        </tr>
+            
+      </tr>
         {% endfor %}
     </tbody>
 </table>

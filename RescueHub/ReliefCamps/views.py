@@ -49,6 +49,8 @@ def Resource_Request(request):
     
     return render(request, 'ReliefCamps/RequestForm.html')
 
+
+
 def ViewRequest(request):
     camp_email = request.user.email  # or however you are identifying the camp
     
