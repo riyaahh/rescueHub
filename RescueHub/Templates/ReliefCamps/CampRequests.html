@@ -39,6 +39,7 @@
             <td>{{ request.request_details }}</td>
             <td>{{ request.urgency_level }}</td>
             <td>
+              <button type="button" class="btn btn-info">Requested</button>
             {% comment %} <td>
                 <!-- Example actions: Edit and Delete -->
                 <a href="{% url 'edit_request' i.id %}" class="btn btn-warning">Edit</a>

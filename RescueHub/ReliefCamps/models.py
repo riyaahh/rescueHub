@@ -28,9 +28,7 @@ class ResourceRequest(models.Model):
     delivery_address = models.TextField()
     requested_by_date = models.DateField()
     urgency_level = models.CharField(max_length=20, choices=URGENCY_CHOICES)
-    
-    # New status field with default value as False
-    status = models.BooleanField(default=False)
+    status = models.CharField(max_length=20, choices=[("Pending", "Pending"), ("Accepted", "Accepted"), ("Denied", "Denied")], default="Pending")
 
     def __str__(self):
         return f"Request by {self.requester_name} for {self.camp_name}"
