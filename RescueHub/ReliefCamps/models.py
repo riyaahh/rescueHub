@@ -30,7 +30,6 @@ class ResourceRequest(models.Model):
     urgency_level = models.CharField(max_length=20, choices=URGENCY_CHOICES)
     status = models.CharField(max_length=20, choices=[("Pending", "Pending"), ("Accepted", "Accepted"), ("Denied", "Denied")], default="Pending")
 
-    organization = models.ForeignKey('AidTogether.OrganisationProfile', on_delete=models.SET_NULL,null=True,related_name='resource_requests')
 
     def __str__(self):
         return f"Request by {self.requester_name} for {self.camp_name}"

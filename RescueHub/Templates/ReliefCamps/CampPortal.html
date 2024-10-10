@@ -26,7 +26,7 @@
 
 
 {% block content %}
-<div class="bg">  
+
     <div class="profile-container">  
         <div class="profile-box">
             <div class="profile-image">
@@ -41,8 +41,7 @@
                                 <span class="text-primary">Relief Camp</span>
                                 <p class="text-secondary mb-1">Relief Camp</p>
                                 <p class="text-muted font-size-sm">{{ item.address }}</p>
-                                <button class="btn btn-primary">Add affected people details</button>
-                                <a href="{% url 'RequestForm' %}" class="btn btn-outline-primary">Request Resources</a>
+
                                 {% endif %}
                         {% endfor %}
                         {% if not organisation %}
@@ -56,7 +55,7 @@
                 </div>
             </div>
         </div>
-    </div>
+
 </section>
 {% endblock content %}
 

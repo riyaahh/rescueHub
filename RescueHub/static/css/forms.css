@@ -1,11 +1,13 @@
 .custom-form {
-    padding-top: 100px;
+    padding-top: 50px;
     position: relative;
     border-radius: 12px;
     background-color: rgb(41, 38, 35);
-    opacity: 70%;
+    opacity: 80%;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    padding-bottom: 50px;
+    margin-top: 100px;
 }
 
 
