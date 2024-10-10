@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from AidTogether.models import ReliefCampProfile
 from ReliefCamps.models import  ResourceRequest
+from django.contrib.auth.decorators import login_required 
 
 
 def CampPortal(request):
@@ -13,11 +14,9 @@ def RequestForm(request):
 # def CampRequests(request):
 #     return render(request, 'ReliefCamps/CampRequests.html',context={})
 
+@login_required
 def Resource_Request(request):
     if request.method == "POST":
-        camp_name = request.POST.get("CampName")
-        camp_email = request.POST.get("CampEmail")
-        camp_phone = request.POST.get("ph")
         requester_name = request.POST.get("name")
         requester_phone= request.POST.get("phone")
         resource_type = request.POST.get("resource_type")
@@ -27,12 +26,12 @@ def Resource_Request(request):
         requested_by_date = request.POST.get("date")
         urgency_level = request.POST.get("urgency")
         status = False
-          
+        
+        camp =  ReliefCampProfile.objects.get(user=request.user)
+
 
         print("Resource Type:", resource_type)
-        data =  ResourceRequest(camp_name=camp_name,
-                                camp_email=camp_email,
-                                camp_phone=camp_phone,
+        data =  ResourceRequest(camp=camp,
                                 requester_name=requester_name,
                                 requester_phone = requester_phone,
                                 resource_type = resource_type,
@@ -50,11 +49,10 @@ def Resource_Request(request):
     return render(request, 'ReliefCamps/RequestForm.html')
 
 
-
+@login_required
 def ViewRequest(request):
-    camp_email = request.user.email  # or however you are identifying the camp
-    
+    camp_profile = ReliefCampProfile.objects.get(user=request.user)
     # Fetch only the resource requests for the logged-in camp
-    camp_requests = ResourceRequest.objects.filter(camp_email=camp_email)
+    camp_requests = ReliefCampProfile.objects.filter(id=camp_profile.id)
     # print(camp_requests)
     return render(request, 'ReliefCamps/CampRequests.html', {'requests': camp_requests})
