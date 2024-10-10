@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from AidTogether.models import ReliefCampProfile
 
 
 # Model to capture resource requests
@@ -18,9 +19,7 @@ class ResourceRequest(models.Model):
         ('SHELTER', 'Shelter'),
     ]
 
-    camp_name = models.CharField(max_length=255)
-    camp_email = models.CharField(max_length=255, null=True)
-    camp_phone = models.CharField(max_length=15)
+    camp = models.ForeignKey(ReliefCampProfile, on_delete=models.CASCADE, related_name="resource_requests")
     requester_name = models.CharField(max_length=255)
     requester_phone = models.CharField(max_length=15)
     resource_type = models.CharField(max_length=20, choices=RESOURCE_TYPES)

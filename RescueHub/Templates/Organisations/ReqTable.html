@@ -33,8 +33,8 @@
         {% for i in data %}
         <tr>
             <td>{{ forloop.counter }}</td>
-            <td>{{ i.camp_name }}</td>
-            <td>{{ i.camp_phone }}</td>
+            <td>{{ i.camp.camp_name }}</td>
+            <td>{{ i.camp.phone }}</td>
             <td>{{ i.requester_name }}</td>
             <td>{{ i.requester_phone }}</td>
             <td>{{ i.resource_type }}</td>
