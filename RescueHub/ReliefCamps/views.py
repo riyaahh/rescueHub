@@ -11,9 +11,6 @@ def CampPortal(request):
 def RequestForm(request):
     return render(request, 'ReliefCamps/RequestForm.html',context={})
 
-# def CampRequests(request):
-#     return render(request, 'ReliefCamps/CampRequests.html',context={})
-
 @login_required
 def Resource_Request(request):
     if request.method == "POST":
@@ -52,7 +49,7 @@ def Resource_Request(request):
 @login_required
 def ViewRequest(request):
     camp_profile = ReliefCampProfile.objects.get(user=request.user)
-    # Fetch only the resource requests for the logged-in camp
-    camp_requests = ReliefCampProfile.objects.filter(id=camp_profile.id)
-    # print(camp_requests)
+    # Fetch only the resource requests corresponding to the logged-in camp
+    camp_requests = ResourceRequest.objects.filter(camp=camp_profile)
+
     return render(request, 'ReliefCamps/CampRequests.html', {'requests': camp_requests})
