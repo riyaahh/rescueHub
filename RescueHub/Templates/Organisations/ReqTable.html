@@ -3,7 +3,7 @@
 
 {% block extrahead %}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" href= "{% static 'css/forms.css' %}" type="text/css">
+
 {% endblock extrahead %}
 
 {% block content %}
@@ -55,23 +55,9 @@
               </div>
             </td>
             
-
-{% comment %} 
-            <td>
-              <div class="btn-group" role="group">
-                {% if i.status == 'Pending' %}
-                  <a href="{% url 'denyRequest' i.id %}" class="btn btn-danger">Deny</a>
-                  <a href="{% url 'acceptRequest' i.id %}" class="btn btn-info">Accept</a>
-                {% else %}
-                  <span class="text-muted">{{ i.status }}</span>  <!-- Display status if already processed -->
-                {% endif %}
-              </div>
-            </td> {% endcomment %}
             
       </tr>
         {% endfor %}
-    </tbody>
-</table>
 
 </tbody>
 
