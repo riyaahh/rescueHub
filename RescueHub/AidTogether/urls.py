@@ -14,6 +14,7 @@ urlpatterns=[
     path('oregister', views.register_org,name="oregister"),
     path('rregister', views.register_reliefcamp,name="rregister"),
     path('login_access', views.login_access,name="login_access"),
+    path('logout', views.logout_view, name='logout'),
     
 
 ]

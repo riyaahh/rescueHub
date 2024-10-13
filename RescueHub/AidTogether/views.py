@@ -191,5 +191,9 @@ def register_reliefcamp(request):
         return redirect('home')  # Redirect to volunteer's dashboard
 
     return render(request, 'registration')
+
+def logout_view(request):
+    logout(request)  # This will log the user out
+    return redirect('home')  # Redirect to the login page (or any other page)
         
 
