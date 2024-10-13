@@ -4,5 +4,5 @@ from .import views
 
 urlpatterns=[
     path('VolunteerPortal',views.VolunteerPortal,name="VolunteerPortal"),
-    path('volunteertasks',views.volunteertasks,name="volunteertasks"),
+    path('volunteerTasks',views.volunteerTask,name="volunteerTasks"),
 ]

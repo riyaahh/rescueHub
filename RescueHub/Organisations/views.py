@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from AidTogether.models import OrganisationProfile
 from ReliefCamps.models import  ResourceRequest
-
+from Volunteers.models import VolunteerTasks
 
 
 # Create your views here.
@@ -21,6 +21,14 @@ def denyRequest(request, id):
 
 def acceptRequest(request, id):
     resource_request = get_object_or_404(ResourceRequest, id=id)
-    resource_request.status = "Accepted"  # Assuming you have a 'status' field
+    resource_request.status = "Accepted"  # Update the status to "Accepted"
     resource_request.save()  # Save the updated status
-    return redirect("ReqTable")
+
+    # Now create an entry in the VolunteerTasks table
+    VolunteerTasks.objects.create(
+        receivers_id=resource_request,  # Link to the ResourceRequest
+        org_id=request.user.organisationprofile,  # Assuming the user is linked to an organisation profile
+        status="Accepted"  # Set the status to "Accepted"
+    )
+
+    return redirect("ReqTable")  # Redirect as needed
