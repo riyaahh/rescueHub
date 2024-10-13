@@ -34,19 +34,19 @@
 
       <table class="table" ,"txt">
         <thead>
+          {% for request in requests %}
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">Requester Name</th>
-            <th scope="col">Requester Phone</th>
+            <td>{{ forloop.counter }}</td>
+            <th scope="col">{{ request.requester_name }}</th>
+            <th scope="col">{{ request.requester_phone }}</th>
             <th scope="col">Delivery Address</th>
-            <th scope="col">Organization Address</th>
-            <th scope="col">Organization Number</th>
+            <th scope="col">{{ request.org_name }}</th>
+            <th scope="col">{{ request.phone }}</th>
             <th scope="col">Resource Type</th>
             <th scope="col">Quantity</th>
             <th scope="col">Status</th>
             <th scope="col">Action</th>
-
-          </tr>
+        </tr>
         </thead>
         <tbody>
           {% for i in data %}

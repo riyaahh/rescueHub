@@ -19,7 +19,7 @@ class ResourceRequest(models.Model):
         ('SHELTER', 'Shelter'),
     ]
 
-    camp = models.ForeignKey(ReliefCampProfile, on_delete=models.CASCADE, related_name="resource_requests")
+    camp = models.ForeignKey(ReliefCampProfile, default=1, on_delete=models.CASCADE, related_name="resource_requests")
     requester_name = models.CharField(max_length=255)
     requester_phone = models.CharField(max_length=15)
     resource_type = models.CharField(max_length=20, choices=RESOURCE_TYPES)
