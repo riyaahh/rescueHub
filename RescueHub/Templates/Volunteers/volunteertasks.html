@@ -28,13 +28,12 @@
 
 
 {% block content %}
+<div class = "table">
+  <div class="table-responsive">
 
-  <div class="table">
-    <div class="table-responsive">
-
-      <table class="table" ,"txt">
-        <thead>
-          <tr>
+  <table class="table","txt">
+    <thead>
+        <tr>
               <th scope="col">Sl No</th>
               <th scope="col">Name of the Organisation</th>
               <th scope="col">From Address</th>
@@ -54,11 +53,13 @@
             <td>{{ i.receivers_id.delivery_address }}</td>
             <td>{{ i.receivers_id.resource_type }}</td>
             <td>{{ i.receivers_id.quantity }}</td>
+            <td>{{ i.status }}</td> 
+
             <td>
               <div class="btn-group" role="group">
                 {% comment %} <button type="button" class="btn btn-success">Accept</button> {% endcomment %}
-                <a href="{% url 'denyRequest' i.id %}" class="btn btn-danger">Deny</a>
-                <a href="{% url 'acceptRequest' i.id %}" class="btn btn-info">Accept</a>
+                <a href="{% url 'denyTask' i.id %}" class="btn btn-danger">Deny</a>
+                <a href="{% url 'acceptTask' i.id %}" class="btn btn-info">Accept</a>
 
               </div>
             </td>
