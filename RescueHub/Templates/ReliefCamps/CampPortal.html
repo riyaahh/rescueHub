@@ -20,39 +20,44 @@
 <link rel="stylesheet" href="{% static 'owlcarousel/owl.theme.default.min.css' %}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@1&family=Fasthand&family=Playfair+Display:ital,wght@0,700;1,500&display=swap" rel="stylesheet">
+<link
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@1&family=Fasthand&family=Playfair+Display:ital,wght@0,700;1,500&display=swap"
+    rel="stylesheet">
 {% endblock styles %}
 
 {% block content %}
 
-    <div class="profile-container">  
-        <div class="profile-box">
-            <div class="profile-image">
+<div class="profile-container">
+    <div class="profile-box">
+        <div class="profile-image">
 
-                            {% for item in camp %}
-                            {% if item.user_id == user.id %}
-                            {% if item.camp_image %}
-                            <img src="{{ item.camp_image.url }}" alt="Admin" class="rounded-circle" width="150">
-                            {% else %}
-                            <img src="{% static 'images/placeholder.png' %}" alt="Admin" class="rounded-circle" width="150">
-                            {% endif %}
-                                <span class="text-primary">Relief Camp</span>
-                                <p class="text-secondary mb-1">Relief Camp</p>
-                                <p class="text-muted font-size-sm">{{ item.address }}</p>
-
-                                {% endif %}
-                        {% endfor %}
-                        {% if not organisation %}
-                            <p>No organisation information available.</p>  <!-- Handle case when no organisation is found -->
-                        {% endif %}
-                            </div>
-                        </div>
-                        
-
-                    </div>
-                </div>
-            </div>
+            {% for item in camp %}
+            {% if item.user_id == user.id %}
+            {% if item.camp_image %}
+            <img src="{{ item.camp_image.url }}" alt="Admin" class="rounded-circle" width="150">
+            {% else %}
+            <img src="{% static 'images/placeholder.png' %}" alt="Admin" class="rounded-circle" width="150">
+            {% endif %}
         </div>
+        <div class="profile-details">
+            <span class="text-primary">Relief Camp</span>
+            <p class="text-secondary mb-1">{{ item.camp_name }}</p>
+            <p class="text-muted font-size-sm">{{ item.address }}</p>
+
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% if not organisation %}
+        <p>No organisation information available.</p> <!-- Handle case when no organisation is found -->
+        {% endif %}
+    </div>
+</div>
+
+
+</div>
+</div>
+
+</div>
 
 </section>
 {% endblock content %}
