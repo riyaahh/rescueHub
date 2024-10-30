@@ -24,7 +24,6 @@
             <th scope="col">Address</th>
             <th scope="col">Request Date</th>
             <th scope="col">Urgency Level</th>
-            <th scope="col">Status</th>
             <th scope="col">Action</th>
 
         </tr>
@@ -43,17 +42,19 @@
             <td>{{ i.delivery_address }}</td> 
             <td>{{ i.requested_by_date }}</td>
             <td>{{ i.urgency_level }}</td>
-            <td>{{ i.status }}</td> 
+
 
            
             <td>
               <div class="btn-group" role="group">
-                {% comment %} <button type="button" class="btn btn-success">Accept</button> {% endcomment %}
-                <a href="{% url 'denyRequest' i.id %}" class="btn btn-danger">Deny</a>
-                <a href="{% url 'acceptRequest' i.id %}" class="btn btn-info">Accept</a>
-
+                  {% if i.status == "Accepted" %}
+                      <!-- Show a disabled "Accepted" button if already accepted -->
+                      <button type="button" class="btn btn-secondary" disabled>Accepted</button>
+                  {% else %}
+                      <a href="{% url 'acceptRequest' i.id %}" class="btn btn-info">Accept</a>
+                  {% endif %}
               </div>
-            </td>
+          </td>
             
             
       </tr>
