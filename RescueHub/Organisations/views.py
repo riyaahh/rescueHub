@@ -32,3 +32,8 @@ def acceptRequest(request, id):
     )
 
     return redirect("ReqTable")  # Redirect as needed
+
+def Reqportal(request):
+    data = ResourceRequest.objects.all()
+    return render(request, 'Organisations/Reqportal.html',context={'data':data}) 
+   

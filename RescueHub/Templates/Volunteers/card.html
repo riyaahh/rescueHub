@@ -1,0 +1,41 @@
+{% extends 'Volunteers/volunteerbase.html' %} 
+{% load static %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href= "{% static 'css/forms.css' %}" type="text/css">
+{% endblock extrahead %}
+
+{% block content %}
+
+<div class="card" style="width: 18rem;">
+    
+    {% for item in camp %}
+    {% if item.user_id == user.id %}
+    {% if item.camp_image %}
+    <img src="{{ item.camp_image.url }}" alt="Admin" class="square" width="150">
+    {% else %}
+    <img src="{% static 'images/placeholder.png' %}" alt="Admin" class="rounded-circle" width="150">
+    {% endif %}
+    <div class="card-body">
+    <p class="text-secondary mb-1">{{ item.camp_name }}</p>
+            <p class="text-muted font-size-sm">{{ item.address }}</p>
+
+            {% endif %}
+            {% endfor %}
+  
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <p> <button type="button" class="btn btn-link">view more</button></p>
+    </div>
+  </div>
+
+
+{% endblock content %}
+
+  {% block extrascript %}
+  <script src='https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js'></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  {% endblock extrascript %}

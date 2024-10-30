@@ -25,6 +25,12 @@ def acceptTask(request, id):
     resource_request.status = "Accepted"  # Update the status to "Accepted"
     resource_request.save() 
     return redirect("volunteerTasks")
+
+def Taskrequests(request):
+    return render(request, "Volunteers/Taskrequests.html",context={})
+
+def card(request):
+    return render(request, "Volunteers/card.html",context={})
     
 
 
