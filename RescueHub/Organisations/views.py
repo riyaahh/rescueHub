@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from AidTogether.models import OrganisationProfile
 from ReliefCamps.models import  ResourceRequest
 from Volunteers.models import VolunteerTasks
+from AidTogether.models import ReliefCampProfile
+
 
 
 # Create your views here.
@@ -36,4 +38,10 @@ def acceptRequest(request, id):
 def Reqportal(request):
     data = ResourceRequest.objects.all()
     return render(request, 'Organisations/Reqportal.html',context={'data':data}) 
+
+
+def cardorg(request):
+    org=ResourceRequest.objects.all()
+    camp=ReliefCampProfile.objects.all()
+    return render(request, 'Organisations/cardorg.html',{'org':org,'camp':camp})
    

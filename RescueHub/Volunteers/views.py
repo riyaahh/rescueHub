@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from AidTogether.models import VolunteerProfile,OrganisationProfile
 from django.contrib.auth.decorators import login_required 
 from Volunteers.models import VolunteerTasks
+from AidTogether.models import OrganisationProfile
+
 
 
 
@@ -23,18 +25,18 @@ def denyTask(request, id):
 @login_required
 def acceptTask(request, id):
     resource_request = get_object_or_404(VolunteerTasks, id=id)
-    
-    # Check if the user hasn't accepted the task already
+      # Check if the user hasn't accepted the task already
     if not resource_request.accepted_by.filter(id=request.user.id).exists():
         resource_request.accepted_by.add(request.user)  # Add current user to accepted_by
         resource_request.status = "Accepted"  # Update the status to "Accepted"
         resource_request.save()  # Save the updated task
+    return redirect("volunteerTasks")
+
     
-    return redirect("volunteerTasks")  # Redirect to tasks page
-    
-def DetailedTask(request):   
+def card(request):
     tasks = VolunteerTasks.objects.all()
-    return render(request, 'Volunteers/DetailedTask.html',{'tasks':tasks}) 
+    
+    return render(request, "Volunteers/card.html",{'tasks':tasks})
 
-
-#
+def Taskrequests(request):
+    return render(request, "Volunteers/Taskrequests.html",context={})
