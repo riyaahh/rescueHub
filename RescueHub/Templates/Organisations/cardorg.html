@@ -1,26 +1,27 @@
-{% extends 'Volunteers/volunteerbase.html' %} 
+{% extends 'Organisations/OrgBase.html' %} 
 {% load static %}
 
 {% block extrahead %}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" href="{% static 'css/forms.css' %}" type="text/css">
+
 {% endblock extrahead %}
 
 {% block content %}
 
 <div class="row">
-    {% for item in tasks %}
-    <div class="col-md-4">
+    {% for item in org %}
+    {% for i in camp %}
+    <div class="col-md-3">
         <div class="card mb-4" style="width: 18rem;">
             <div class="card-body">
-                <img src="{{ item.org_id.org_image.url }}" alt="Organization Image" class="img-fluid mb-2">
-                <p class="text-secondary mb-1">{{ item.org_id.org_name }}</p>
-                <p class="text-muted font-size-sm">{{ item.org_id.address }}</p>
+                <img src="{{ item.receivers_id.camp_image.url }}" alt="camp Image" class="img-fluid mb-2">
+                <p class="text-secondary mb-1"><strong>Camp Name</strong>{{ i.camp_name }}</p>
+                <p class="text-muted font-size-sm"><strong>Camp Address</strong>{{ i.address }}</p>
                 <p class="card-text" id="card-text-{{ forloop.counter }}" style="display: none;">
-                    <strong>Address:</strong> {{ item.receivers_id.delivery_address }}<br>
-                    <strong>Resource Type:</strong> {{ item.receivers_id.resource_type }}<br>
-                    <strong>Quantity:</strong> {{ item.receivers_id.quantity }}<br>
-                    <strong>Request Details:</strong> {{ item.receivers_id.request_details }}
+                    <strong>Address:</strong> {{ item.delivery_address }}<br>
+                    <strong>Resource Type:</strong> {{ item.resource_type }}<br>
+                    <strong>Quantity:</strong> {{ item.quantity }}<br>
+                    <strong>Request Details:</strong> {{ item.request_details }}
                 </p>
                 <p><button type="button" class="btn btn-link" onclick="toggleText({{ forloop.counter }})" id="toggle-btn-{{ forloop.counter }}">View More</button></p>
 
@@ -36,6 +37,7 @@
             </div>
         </div>
     </div>
+    {% endfor %}
     {% endfor %}
 </div>
 
