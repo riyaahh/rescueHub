@@ -14,6 +14,7 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- slider stylesheet -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/owl.carousel.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/form.css' %}" type="text/css">
     <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
     <!-- font awesome style -->
@@ -62,9 +63,8 @@
         
         <ul class="nav" style="list-style: none; display: flex; gap: 20px; margin: 0;">
             <li class="nav-item"><a class="nav-link" href="organisationPortal" style="text-decoration: none; color: black;">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="ReqTable" style="text-decoration: none; color: black;">View Requets</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}" style="text-decoration: none; color: black;">Log Out</a></li>
-            <li class="nav-item"><a class="nav-link" href="cardorg" style="text-decoration: none; color: black;">Card org</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'cardorg' %}" style="text-decoration: none; color: black;">Card org</a></li>
 
             
         </ul>

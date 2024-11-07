@@ -10,5 +10,7 @@ urlpatterns=[
     path('acceptRequest/<int:id>', views.acceptRequest, name="acceptRequest"),
     path('Reqportal',views.Reqportal,name='Reqportal'),
     path('cardorg',views.cardorg,name="cardorg"),
+    path('task/<int:task_id>/', views.task_details, name='task_details'),
+    path('accept/<int:request_id>/', views.org_accept_request, name='task_accept'),
 
 ]
