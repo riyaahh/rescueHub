@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from AidTogether.models import VolunteerProfile,OrganisationProfile
 from django.contrib.auth.decorators import login_required 
 from ReliefCamps.models import ResourceRequest
-from Volunteers.models import VolunteerTasks
+from Volunteers.models import VolunteerTasks,FinalVolunteer
 from AidTogether.models import OrganisationProfile
 from Volunteers.models import volunteer_accepted_request
 from Organisations.models import organisation_accepeted_request
@@ -13,15 +13,6 @@ def VolunteerPortal(request):
     volunteer=VolunteerProfile.objects.all()
     return render(request, "Volunteers/VolunteerPortal.html",{'volunteer':volunteer})
 
-def volunteerTasks(request):   
-    tasks = VolunteerTasks.objects.all()
-    return render(request, 'Volunteers/volunteertasks.html',{'tasks':tasks}) 
-
-def denyTask(request, id):
-    resource_request = get_object_or_404(VolunteerTasks, id=id)
-    resource_request.status = "Denied"  # Assuming you have a 'status' field in your model
-    resource_request.save()  # Save the updated status
-    return redirect("cardView")
 
 @login_required
 def acceptTask(request, id):
@@ -67,5 +58,15 @@ def volunteer_accept_request(request, request_id):
     volunteer_accept.save()
 
     return redirect('card')
+
+def volunteertasks(request):
+    # Get all volunteers
+    volunteer = VolunteerProfile.objects.all()
+
+    # Fetch the associated ResourceRequests for these volunteers
+    tasks = FinalVolunteer.objects.filter(volunteer_id__in=volunteer).select_related('resourceRequest')
+
+    return render(request, "Volunteers/volunteertasks.html", {'tasks': tasks})
+
 
 
