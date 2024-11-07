@@ -7,38 +7,39 @@
 {% endblock extrahead %}
 
 {% block content %}
-
 <div class="row">
-    {% for item in tasks %}
-    <div class="col-md-4">
-        <div class="card mb-4" style="width: 18rem;">
-            <div class="card-body">
-                <img src="{{ item.org_id.org_image.url }}" alt="Organization Image" class="img-fluid mb-2">
-                <p class="text-secondary mb-1">{{ item.org_id.org_name }}</p>
-                <p class="text-muted font-size-sm">{{ item.org_id.address }}</p>
-                <p class="card-text" id="card-text-{{ forloop.counter }}" style="display: none;">
-                    <strong>Address:</strong> {{ item.receivers_id.delivery_address }}<br>
-                    <strong>Resource Type:</strong> {{ item.receivers_id.resource_type }}<br>
-                    <strong>Quantity:</strong> {{ item.receivers_id.quantity }}<br>
-                    <strong>Request Details:</strong> {{ item.receivers_id.request_details }}
-                </p>
-                <p><button type="button" class="btn btn-link" onclick="toggleText({{ forloop.counter }})" id="toggle-btn-{{ forloop.counter }}">View More</button></p>
+    {% for item in accepted_requests %}
+        <div class="col-md-4">
+            <div class="card mb-4" style="width: 18rem;">
+                <div class="card-body">
+                    {% if item.org_id.org_image %}
+                        <img src="{{ item.org_id.org_image.url }}" alt="Organization Image" class="img-fluid mb-2">
+                    {% endif %}
+                    <p class="text-secondary mb-1">{{ item.org_id.org_name }}</p>
+                    <p class="text-muted font-size-sm">{{ item.org_id.address }}</p>
+                    
+                    <p class="card-text" id="card-text-{{ forloop.counter }}" style="display: none;">
+                        <strong>Address:</strong> {{ item.resourceRequest_id.delivery_address }}<br>
+                        <strong>Resource Type:</strong> {{ item.resourceRequest_id.resource_type }}<br>
+                        <strong>Quantity:</strong> {{ item.resourceRequest_id.quantity }}<br>
+                        <strong>Request Details:</strong> {{ item.resourceRequest_id.request_details }}
+                    </p>
+                    <p>
+                        <button type="button" class="btn btn-link" onclick="toggleText({{ forloop.counter }})" id="toggle-btn-{{ forloop.counter }}">View More</button>
+                    </p>
 
-                {% if item.status == "Accepted" %}
-                    {% if request.user in item.accepted_by.all %}
+                    {% if item.resourceRequest_id.id in accepted_resource_ids %}
+                        <!-- Button is disabled if the current volunteer has accepted the request -->
                         <button class="btn btn-secondary" disabled>Accepted</button>
                     {% else %}
-                        <a href="{% url 'acceptTask' item.id %}" class="btn btn-info">Accept</a>
+                        <!-- Button is active if the current volunteer hasn't accepted the request -->
+                        <a href="{% url 'volunteer_accept_request' item.resourceRequest_id.id %}" class="btn btn-info">Accept</a>
                     {% endif %}
-                {% else %}
-                    <a href="{% url 'acceptTask' item.id %}" class="btn btn-info">Accept</a>
-                {% endif %}
+                </div>
             </div>
         </div>
-    </div>
     {% endfor %}
 </div>
-
 {% endblock content %}
 
 {% block extrascript %}

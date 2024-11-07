@@ -32,5 +32,5 @@ class ResourceRequest(models.Model):
 
 
     def __str__(self):
-        return f"Request by {self.requester_name} for {self.camp_name}"
+        return f"Request by {self.requester_name}"
 

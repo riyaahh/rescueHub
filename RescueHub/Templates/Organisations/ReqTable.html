@@ -1,76 +1,31 @@
 {% extends 'Organisations/OrgBase.html' %} 
 {% load static %}
 
-{% block extrahead %}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-{% endblock extrahead %}
-
 {% block content %}
-<div class = "table">
-  <div class="table-responsive">
+<div class="container">
 
-  <table class="table","txt">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Relief Camp</th>
-            <th scope="col">Phone of Camp</th>
-            <th scope="col">Name of Requester</th>
-            <th scope="col">Phone of Requester</th>
-            <th scope="col">Resource Type</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Description</th>
-            <th scope="col">Address</th>
-            <th scope="col">Request Date</th>
-            <th scope="col">Urgency Level</th>
-            <th scope="col">Action</th>
-
-        </tr>
-    </thead>
-    <tbody>
-        {% for i in data %}
-        <tr>
-            <td>{{ forloop.counter }}</td>
-            <td>{{ i.camp.camp_name }}</td>
-            <td>{{ i.camp.phone }}</td>
-            <td>{{ i.requester_name }}</td>
-            <td>{{ i.requester_phone }}</td>
-            <td>{{ i.resource_type }}</td>
-            <td>{{ i.quantity }}</td>
-            <td>{{ i.request_details }}</td> 
-            <td>{{ i.delivery_address }}</td> 
-            <td>{{ i.requested_by_date }}</td>
-            <td>{{ i.urgency_level }}</td>
-
-
-           
-            <td>
-              <div class="btn-group" role="group">
-                  {% if i.status == "Accepted" %}
-                      <!-- Show a disabled "Accepted" button if already accepted -->
-                      <button type="button" class="btn btn-secondary" disabled>Accepted</button>
-                  {% else %}
-                      <a href="{% url 'acceptRequest' i.id %}" class="btn btn-info">Accept</a>
-                  {% endif %}
-              </div>
-          </td>
-            
-            
-      </tr>
-        {% endfor %}
-
-</tbody>
-
-  </table>
+    <h2 class="txt2 text-center mb-5">Accepted Volunteers</h2>
+    {% if accepted_volunteers %}
+        <div class="row">
+            {% for volunteer in accepted_volunteers %}
+                <div class="col-md-4 mb-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{ volunteer.volunteer_id.vol_image.url }}" class="card-img-top" alt="{{ volunteer.volunteer_id.full_name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ volunteer.volunteer_id.full_name }}</h5>
+                            <p class="card-text"><strong>Address:</strong> {{ volunteer.volunteer_id.address }}</p>
+                            <form method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" name="volunteer_id" value="{{ volunteer.volunteer_id.id }}">
+                                <button type="submit" class="btn btn-primary" {% if volunteer_selected %}disabled{% endif %}>Choose</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No volunteers have accepted this task yet.</p>
+    {% endif %}
 </div>
-</div>
-  {% endblock content %}
-
-  {% block extrascript %}
-  <script src='https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js'></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-  {% endblock extrascript %}
+{% endblock content %}
