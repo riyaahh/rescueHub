@@ -1,0 +1,96 @@
+
+{% extends 'ReliefCamps/campbase.html' %} 
+{% load static %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href= "{% static 'css/forms.css' %}" type="text/css">
+{% endblock extrahead %}
+
+{% block content %}
+
+
+
+  <form method="POST" action="{% url 'Resource_Request' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="col-md-6 offset-md-3 custom-form txt">
+        <h2 class="text-center mb-4">Resource Request Form</h2>
+
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="reqName">Name of the Requester</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter the name of Requester">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="phone">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter your phone number">
+            </div>
+                <input type="email" class="form-control" id="CampName" name="CampEmail"  value={{ user.email }} hidden dosable>
+        </div>
+
+        <!-- Request Details Section -->
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="resource-type">Resource Type</label>
+                <select class="form-control" id="resource-type" name="resource_type">
+                    <option value="FOOD">Food</option>
+                    <option value="MEDICAL_SUPPLIES">Medical Supplies</option>
+                    <option value="VOLUNTEERS">Volunteers</option>
+                    <option value="EQUIPMENT">Equipment</option>
+                    <option value="SHELTER">Shelter</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="quantity">Quantity</label>
+                <input type="number" class="form-control" id="quantity" name="quantity" placeholder="Enter quantity">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="reason">Request Details</label>
+                <textarea class="form-control" id="reason" name="reason" rows="3" placeholder="Briefly explain your request"></textarea>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="address">Address to be Delivered</label>
+                <textarea class="form-control" id="address" name="address" rows="3" placeholder="Enter your address with ZIP Code"></textarea>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="date">Requested By Date</label>
+                <input type="date" class="form-control" id="date" name="date">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="urgency">Urgency Level</label>
+                <select class="form-control" id="urgency" name="urgency">
+                    <option value="IMMEDIATE">Immediate</option>
+                    <option value="24_HOURS">Next 24 Hours</option>
+                    <option value="WEEK">Within a Week</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="text-center">
+            <button type="submit" class="btn btn-light">Submit Request</button>
+        </div>
+    </div>
+</form>
+
+  
+          
+      
+    
+
+  {% endblock content %}
+
+  {% block extrascript %}
+  <script src='https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js'></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  {% endblock extrascript %}
