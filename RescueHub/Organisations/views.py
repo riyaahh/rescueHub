@@ -41,7 +41,6 @@ def Reqportal(request):
 
 
 def cardorg(request):
-    org=ResourceRequest.objects.all()
-    camp=ReliefCampProfile.objects.all()
-    return render(request, 'Organisations/cardorg.html',{'org':org,'camp':camp})
+    resource_request=ResourceRequest.objects.all()
+    return render(request, 'Organisations/cardorg.html',{'resource_request':resource_request,})
    
