@@ -6,5 +6,6 @@ urlpatterns=[
     path('VolunteerPortal',views.VolunteerPortal,name="VolunteerPortal"),
     path('volunteerTasks',views.volunteerTasks,name="volunteerTasks"),
     path('denyTask/<int:id>', views.denyTask, name="denyTask"),
-    path('acceptTask/<int:id>', views.acceptTask, name="acceptTask"),    
+    path('acceptTask/<int:id>', views.acceptTask, name="acceptTask"),  
+    path('card',views.card,name="card"),
 ]

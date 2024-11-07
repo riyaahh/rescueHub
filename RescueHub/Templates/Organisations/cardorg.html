@@ -9,16 +9,15 @@
 {% block content %}
 
 <div class="row">
-    {% for item in org %}
-    {% for i in camp %}
+    {% for item in resource_request %}
     <div class="col-md-3">
         <div class="card mb-4" style="width: 18rem;">
             <div class="card-body">
-                <img src="{{ item.receivers_id.camp_image.url }}" alt="camp Image" class="img-fluid mb-2">
-                <p class="text-secondary mb-1"><strong>Camp Name</strong>{{ i.camp_name }}</p>
-                <p class="text-muted font-size-sm"><strong>Camp Address</strong>{{ i.address }}</p>
+                <img src="{{ item.camp.camp_image.url }}" alt="camp Image" class="img-fluid mb-2">
+                <p class="text-secondary mb-1"><strong>Camp Name</strong>{{ item.camp.camp_name }}</p>
+                <p class="text-muted font-size-sm"><strong>Camp Address</strong>{{ item.camp.address }}</p>
                 <p class="card-text" id="card-text-{{ forloop.counter }}" style="display: none;">
-                    <strong>Address:</strong> {{ item.delivery_address }}<br>
+                    <strong>Devivery Address:</strong> {{ item.delivery_address }}<br>
                     <strong>Resource Type:</strong> {{ item.resource_type }}<br>
                     <strong>Quantity:</strong> {{ item.quantity }}<br>
                     <strong>Request Details:</strong> {{ item.request_details }}
@@ -37,7 +36,6 @@
             </div>
         </div>
     </div>
-    {% endfor %}
     {% endfor %}
 </div>
 
