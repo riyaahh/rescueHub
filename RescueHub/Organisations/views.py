@@ -19,7 +19,7 @@ def denyRequest(request, id):
     resource_request = get_object_or_404(ResourceRequest, id=id)
     resource_request.status = "Denied"  # Assuming you have a 'status' field in your model
     resource_request.save()  # Save the updated status
-    return redirect("ReqTable")
+    return redirect("cardorg")
 
 def acceptRequest(request, id):
     resource_request = get_object_or_404(ResourceRequest, id=id)
@@ -33,7 +33,7 @@ def acceptRequest(request, id):
         status="Accepted"  # Set the status to "Accepted"
     )
 
-    return redirect("ReqTable")  # Redirect as needed
+    return redirect("cardorg")  # Redirect as needed
 
 def Reqportal(request):
     data = ResourceRequest.objects.all()

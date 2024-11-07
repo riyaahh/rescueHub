@@ -25,16 +25,14 @@
                 </p>
                 <p><button type="button" class="btn btn-link" onclick="toggleText({{ forloop.counter }})" id="toggle-btn-{{ forloop.counter }}">View More</button></p>
 
-                {% if item.status == "Accepted" %}
-                    {% if request.user in item.accepted_by.all %}
-                        <button class="btn btn-secondary" disabled>Accepted</button>
+
+                    {% if item.status == "Accepted" %}
+                        <!-- Show a disabled "Accepted" button if already accepted -->
+                        <button type="button" class="btn btn-secondary" disabled>Accepted</button>
                     {% else %}
-                        <a href="{% url 'acceptTask' item.id %}" class="btn btn-info">Accept</a>
+                        <a href="{% url 'acceptRequest' item.id %}" class="btn btn-info">Accept</a>
                     {% endif %}
-                {% else %}
-                    <a href="{% url 'acceptTask' item.id %}" class="btn btn-info">Accept</a>
-                {% endif %}
-            </div>
+                </div>
         </div>
     </div>
     {% endfor %}
