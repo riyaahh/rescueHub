@@ -69,42 +69,20 @@ def task_details(request, task_id):
     # Fetch the task by its ID
     task = ResourceRequest.objects.get(id=task_id)
 
-    # Check if the logged-in organization has accepted the task
-    org = OrganisationProfile.objects.get(user=request.user)
-    
-    # Check if the organization has accepted the task
-    if not organisation_accepeted_request.objects.filter(org_id=org, resourceRequest_id=task).exists():
-        accepted_volunteers = None  # No access to volunteer details if organization hasn't accepted the task
-        message = "You are not authorized to view the volunteers for this task."
-    else:
-        # Fetch the volunteers who accepted this task
-        accepted_volunteers = volunteer_accepted_request.objects.filter(resourceRequest_id=task)
+    # Fetch the logged-in volunteer
+    volunteer = VolunteerProfile.objects.get(user=request.user)
 
-        # If there are no accepted volunteers
-        if not accepted_volunteers:
-            message = "No volunteers have accepted this task yet."
-        else:
-            message = None
+    # Check if this volunteer is assigned to the task
+    try:
+        final_volunteer = FinalVolunteer.objects.get(volunteer_id=volunteer, resourceRequest_id=task)
+        message = "You have been assigned to this task."
+    except FinalVolunteer.DoesNotExist:
+        final_volunteer = None
+        message = "You are not assigned to this task."
 
-    # Handle POST request to select a volunteer
-    if request.method == 'POST':
-        volunteer_id = request.POST.get('volunteer_id')  # Get the volunteer ID from the form
-        volunteer = VolunteerProfile.objects.get(id=volunteer_id)  # Fetch the volunteer object
-        
-        # Save the selected volunteer in the FinalVolunteer model
-        final_volunteer = FinalVolunteer(volunteer_id=volunteer, resourceRequest=task)
-        final_volunteer.save()
-
-        # Redirect to the same page after saving the volunteer selection
-        return redirect('task_details', task_id=task_id)
-
-    # Check if a volunteer has already been selected
-    final_volunteer = FinalVolunteer.objects.filter(resourceRequest=task).first()
-    volunteer_selected = final_volunteer is not None
-
-    return render(request, 'Organisations/ReqTable.html', {
-        'task': task, 
-        'accepted_volunteers': accepted_volunteers,
+    return render(request, 'Volunteers/volunteertasks.html', {
+        'task': task,
         'message': message,
-        'volunteer_selected': volunteer_selected
+        'final_volunteer': final_volunteer,
     })
+
