@@ -1,6 +1,6 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% load static %}
-         
+
 {% block extrahead %}
 <link rel="apple-touch-icon" href="{% static 'apple-touch-icon.png' %}">
 <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
@@ -23,17 +23,28 @@
 
 
 <div class="fixed-side-navbar">
+
+
+
+    <!-- <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="#home"><span>Home</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#services"><span>Services</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#portfolio"><span>Portfolio</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#our-story"><span>Our Story</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact-us"><span>Contact Us</span></a></li>
+    </ul> -->
     <ul class="nav">
         <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
         <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
         <li class="nav-item"><a class="nav-link" href="#our-story">Our Story</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact-us">Dashboard</a></li>
         <li class="nav-item"><a class="nav-link" href="user_login">Login</a></li>
     </ul>
 </div>
-</nav>  
-    
-      
+</nav>
+
+
 <div class="parallax-content baner-content" id="home">
     <div class="container">
         <div class="first-content">
@@ -46,7 +57,7 @@
     </div>
 </div>
 
-        
+
 
 <div class="service-content" id="services">
     <div class="container">
@@ -55,7 +66,9 @@
                 <div class="left-text">
                     <h4>About RescueHub</h4>
                     <div class="line-dec"></div>
-                    <p>RescueHub is dedicated to providing efficient and effective disaster management and volunteer coordination. Our platform leverages advanced technology to ensure timely and accurate disaster response, resource allocation, and volunteer engagement.</p>
+                    <p>RescueHub is dedicated to providing efficient and effective disaster management and volunteer
+                        coordination. Our platform leverages advanced technology to ensure timely and accurate disaster
+                        response, resource allocation, and volunteer engagement.</p>
                     <ul>
                         <li>- Predictive analysis for disaster preparedness</li>
                         <li>- Real-time volunteer coordination</li>
@@ -73,32 +86,36 @@
                         <div class="service-item">
                             <h4>Disaster Alerts</h4>
                             <div class="line-dec"></div>
-                            <p>Receive real-time alerts about impending disasters and stay informed to take necessary actions promptly.</p>
+                            <p>Receive real-time alerts about impending disasters and stay informed to take necessary
+                                actions promptly.</p>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="service-item">
                             <h4>Volunteer Registration</h4>
                             <div class="line-dec"></div>
-                            <p>Register as a volunteer and get connected with various initiatives and relief efforts in your area.</p>
+                            <p>Register as a volunteer and get connected with various initiatives and relief efforts in
+                                your area.</p>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="service-item">
                             <h4>Resource Distribution</h4>
                             <div class="line-dec"></div>
-                            <p>Ensure that resources are distributed effectively to those in need during disaster relief operations.</p>
+                            <p>Ensure that resources are distributed effectively to those in need during disaster relief
+                                operations.</p>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="service-item">
                             <h4>NGO Collaboration</h4>
                             <div class="line-dec"></div>
-                            <p>Collaborate with NGOs and other organizations to enhance the effectiveness of disaster management efforts.</p>
+                            <p>Collaborate with NGOs and other organizations to enhance the effectiveness of disaster
+                                management efforts.</p>
                         </div>
                     </div>
                 </div>
-            </div>                
+            </div>
         </div>
     </div>
 </div>
@@ -110,7 +127,8 @@
                 <div id="owl-testimonials" class="owl-carousel owl-theme">
                     <div class="item">
                         <div class="testimonials-item">
-                            <a href="{% static 'images/community.jpg' %}" data-lightbox="image-1"><img src="{% static 'images/community.jpg' %}" alt="" height="350cm"></a>
+                            <a href="{% static 'images/community.jpg' %}" data-lightbox="image-1"><img
+                                    src="{% static 'images/community.jpg' %}" alt="" height="350cm"></a>
                             <div class="text-content">
                                 <h4>Community Engagement</h4>
                                 <span>Engaging local communities in disaster preparedness and response.</span>
@@ -119,25 +137,30 @@
                     </div>
                     <div class="item">
                         <div class="testimonials-item">
-                            <a href="{% static 'images/6.png' %}" data-lightbox="image-1"><img src="{% static 'images/6.png' %}" alt=""></a>
+                            <a href="{% static 'images/6.png' %}" data-lightbox="image-1"><img
+                                    src="{% static 'images/6.png' %}" alt=""></a>
                             <div class="text-content">
                                 <h4>Volunteer Training</h4>
-                                <span>Providing training and resources for volunteers to be effective in their roles.</span>
+                                <span>Providing training and resources for volunteers to be effective in their
+                                    roles.</span>
                             </div>
                         </div>
                     </div>
                     <div class="item">
                         <div class="testimonials-item">
-                            <a href="{% static 'images/7.png' %}" data-lightbox="image-1"><img src="{% static 'images/7.png' %}" alt=""></a>
+                            <a href="{% static 'images/7.png' %}" data-lightbox="image-1"><img
+                                    src="{% static 'images/7.png' %}" alt=""></a>
                             <div class="text-content">
                                 <h4>Resource Allocation</h4>
-                                <span>Efficiently allocating resources to maximize impact during disaster relief efforts.</span>
+                                <span>Efficiently allocating resources to maximize impact during disaster relief
+                                    efforts.</span>
                             </div>
                         </div>
                     </div>
                     <div class="item">
                         <div class="testimonials-item">
-                            <a href="{% static 'images/8.png' %}" data-lightbox="image-1"><img src="{% static 'images/8.png' %}" alt=""></a>
+                            <a href="{% static 'images/8.png' %}" data-lightbox="image-1"><img
+                                    src="{% static 'images/8.png' %}" alt=""></a>
                             <div class="text-content">
                                 <h4>Disaster Preparedness</h4>
                                 <span>Helping communities prepare for disasters through education and resources.</span>
@@ -146,16 +169,19 @@
                     </div>
                     <div class="item">
                         <div class="testimonials-item">
-                            <a href="{% static 'images/9.png' %}" data-lightbox="image-1"><img src="{% static 'images/9.png' %}" alt=""></a>
+                            <a href="{% static 'images/9.png' %}" data-lightbox="image-1"><img
+                                    src="{% static 'images/9.png' %}" alt=""></a>
                             <div class="text-content">
                                 <h4>Emergency Response</h4>
-                                <span>Coordinating rapid response to emergencies to save lives and minimize damage.</span>
+                                <span>Coordinating rapid response to emergencies to save lives and minimize
+                                    damage.</span>
                             </div>
                         </div>
                     </div>
                     <div class="item">
                         <div class="testimonials-item">
-                            <a href="{% static 'images/4.png' %}" data-lightbox="image-1"><img src="{% static 'images/4.png' %}" alt=""></a>
+                            <a href="{% static 'images/4.png' %}" data-lightbox="image-1"><img
+                                    src="{% static 'images/4.png' %}" alt=""></a>
                             <div class="text-content">
                                 <h4>Long-Term Recovery</h4>
                                 <span>Supporting long-term recovery efforts to help communities rebuild.</span>
@@ -164,10 +190,12 @@
                     </div>
                     <div class="item">
                         <div class="testimonials-item">
-                            <a href="{% static 'images/5.png' %}" data-lightbox="image-1"><img src="{% static 'images/5.png' %}" alt=""></a>
+                            <a href="{% static 'images/5.png' %}" data-lightbox="image-1"><img
+                                    src="{% static 'images/5.png' %}" alt=""></a>
                             <div class="text-content">
                                 <h4>Technology Integration</h4>
-                                <span>Using technology to enhance the efficiency and effectiveness of disaster management.</span>
+                                <span>Using technology to enhance the efficiency and effectiveness of disaster
+                                    management.</span>
                             </div>
                         </div>
                     </div>
@@ -183,30 +211,39 @@
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <div class="wrapper">
-                <section id="first-tab-group" class="tabgroup">
-                    <div id="tab1">
-                    <img src="{% static 'images/1st-tab.jpg' %}" alt="">
-                    <p>RescueHub started in 2008 with the mission of improving disaster management and volunteer coordination. Over the years, we have grown to become a trusted partner for numerous communities and organizations, providing innovative solutions for disaster response and recovery.</p>
-                    </div>
-                    <div id="tab2">
-                    <img src="{% static 'images/2nd-tab.jpg' %}" alt="">
-                    <p>Our team comprises experts in disaster management, technology, and volunteer coordination. We work tirelessly to ensure that our platform remains up-to-date with the latest advancements and best practices in the field.</p>
-                    </div>
-                    <div id="tab3">
-                    <img src="{% static 'images/3rd-tab.jpg' %}" alt="">
-                    <p>We believe in the power of collaboration and community. By working together with local communities, NGOs, and other organizations, we strive to create a robust network that can respond effectively to disasters and help communities recover swiftly.</p>
-                    </div>
-                    <div id="tab4">
-                    <img src="{% static 'images/4th-tab.jpg' %}" alt="">
-                    <p>Join us in our mission to make a difference. Whether you are looking to volunteer, collaborate, or seek assistance, RescueHub is here to support you every step of the way.</p>
-                    </div>
-                </section>
-                <ul class="tabs clearfix" data-tabgroup="first-tab-group">
-                    <li><a href="#tab1" class="active">Our Mission</a></li>
-                    <li><a href="#tab2">Our Team</a></li>
-                    <li><a href="#tab3">Our Vision</a></li>
-                    <li><a href="#tab4">Join Us</a></li>
-                </ul>
+                    <section id="first-tab-group" class="tabgroup">
+                        <div id="tab1">
+                            <img src="{% static 'images/1st-tab.jpg' %}" alt="">
+                            <p>RescueHub started in 2008 with the mission of improving disaster management and volunteer
+                                coordination. Over the years, we have grown to become a trusted partner for numerous
+                                communities and organizations, providing innovative solutions for disaster response and
+                                recovery.</p>
+                        </div>
+                        <div id="tab2">
+                            <img src="{% static 'images/2nd-tab.jpg' %}" alt="">
+                            <p>Our team comprises experts in disaster management, technology, and volunteer
+                                coordination. We work tirelessly to ensure that our platform remains up-to-date with the
+                                latest advancements and best practices in the field.</p>
+                        </div>
+                        <div id="tab3">
+                            <img src="{% static 'images/3rd-tab.jpg' %}" alt="">
+                            <p>We believe in the power of collaboration and community. By working together with local
+                                communities, NGOs, and other organizations, we strive to create a robust network that
+                                can respond effectively to disasters and help communities recover swiftly.</p>
+                        </div>
+                        <div id="tab4">
+                            <img src="{% static 'images/4th-tab.jpg' %}" alt="">
+                            <p>Join us in our mission to make a difference. Whether you are looking to volunteer,
+                                collaborate, or seek assistance, RescueHub is here to support you every step of the way.
+                            </p>
+                        </div>
+                    </section>
+                    <ul class="tabs clearfix" data-tabgroup="first-tab-group">
+                        <li><a href="#tab1" class="active">Our Mission</a></li>
+                        <li><a href="#tab2">Our Team</a></li>
+                        <li><a href="#tab3">Our Vision</a></li>
+                        <li><a href="#tab4">Join Us</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -216,114 +253,312 @@
 
 
 <div class="parallax-content contact-content" id="contact-us">
-    <!-- <div class="container"> -->
-        <!-- <div class="row">
-            <div class="col-md-8 mx-auto">
-                <div class="wrapper">
-                    <div class="contact-form">
-                        <form id="contact" action="" method="post">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <fieldset>
-                                        <input name="name" type="text" class="form-control" id="name" placeholder="Your name..." required="">
-                                    </fieldset>
-                                </div>
-                                <div class="col-md-6">
-                                    <fieldset>
-                                        <input name="email" type="email" class="form-control" id="email" placeholder="Your email..." required="">
-                                    </fieldset>
-                                </div>
-                                <div class="col-md-12">
-                                    <fieldset>
-                                        <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your message..." required=""></textarea>
-                                    </fieldset>
-                                </div>
-                                <div class="col-md-12">
-                                    <fieldset>
-                                        <button type="submit" id="form-submit" class="btn">Send Message</button>
-                                      </fieldset>
-                                    </div>
-                                </div>
-                            </form>
-                        </div> -->
-                    <!-- </div> -->
-                </div> 
-                <div class="col-md-12">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
 
-                    <div class="map">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763004.1442258773!2d73.75781335155433!3d18.520430392090314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be85b0c7e0eeef3%3A0x1f7e8d10bc92bbbc!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1666181682555!5m2!1sen!2sin" 
-                            width="100%" 
-                            height="390" 
-                            frameborder="0" 
-                            style="border:0" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <h1> We Are ...!</h1>
+    <figure class="highcharts-figure">
+        <div class="chart-row">
+            <div id="container1"></div>
+            <div id="container2"></div>
+            <div id="container3"></div>
+        </div>
+
+    </figure>
+
+    <style>
+        h1 {
+            font-family: 'Arial', sans-serif;
+            font-weight: 900;
+            font-size: 3em;
+            /* Adjust as needed */
+            letter-spacing: 2px;
+            /* Optional for a denser look */
+        }
+    
+        .highcharts-figure,
+        .highcharts-data-table table {
+            min-width: 320px;
+            max-width: 800px;
+            margin: 1em auto;
+        }
+    
+        .highcharts-data-table table {
+            font-family: Verdana, sans-serif;
+            border-collapse: collapse;
+            /* border: 1px solid #ebebeb; */
+            margin: 10px auto;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+    
+        .highcharts-data-table caption {
+            padding: 2em 0;
+            font-size: 2.2em;
+            color: #555;
+        }
+    
+        .highcharts-data-table th {
+            font-weight: 600;
+            padding: 5em;
+        }
+    
+        .highcharts-data-table td,
+        .highcharts-data-table th,
+        .highcharts-data-table caption {
+            padding: 5em;
+        }
+    
+        input[type="number"] {
+            min-width: 50px;
+        }
+    
+        .highcharts-description {
+            margin: 0.3rem 10px;
+        }
+    
+        .highcharts-figure .chart-row {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 2em; /* Added gap for space between charts */
+        }
+    
+        .highcharts-figure .chart-row div {
+            width: 100%;
+            max-width: 400px;
+            margin: 0.5em;
+            background: none;
+            /* Ensure no background */
+        }
+    
+        /* Ensure the chart itself has a transparent background */
+        .highcharts-figure .highcharts-background {
+            fill: none !important;
+        }
+    </style>
+    <script>
+        Highcharts.chart('container1', {
+            chart: {
+                type: 'pie',
+                backgroundColor: 'transparent' // Ensure no background
+            },
+            title: {
+                text: 'Volunteer <BR>Count: <BR>{{ volunteer_count }}',
+
+                verticalAlign: 'middle',
+                floating: false,
+                y: 35,
+                style: {
+                    fontSize: '20px', // Increase font size here
+
+
+
+                }
+            },
+            subtitle: {
+                text: 'Volunteer Count',
+                useHTML: true, // Ensures styles apply properly
+                style: {
+                    fontSize: '20px',
+                    fontWeight: 'bold',
+                    // backgroundColor: '#d2b48c', // Red background
+                    color: '#000000', // Black text color
+                    padding: '5px', // Adds space around the text for better visibility
+                    borderRadius: '5px', // Optional, adds rounded corners
+                    display: 'inline-block' // Ensures background color wraps the text
+                }
+            },
+
+
+
+
+            plotOptions: {
+                pie: {
+                    innerSize: '85%',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    colors: ['#006401'] // Sand color
+                }
+            },
+            series: [{
+                name: 'Volunteers',
+                colorByPoint: true,
+                data: [{
+                    name: 'Volunteers',
+                    y: {{ volunteer_count }}
+                }]
+            }]
+        });
+
+        Highcharts.chart('container2', {
+            chart: {
+                type: 'pie',
+                backgroundColor: 'transparent' // Ensure no background
+            },
+            title: {
+                text: 'Organisation Count: <br> {{ organisation_count }}',
+                verticalAlign: 'middle',
+                floating: true,
+                y: 35,
+                style: {
+                    fontSize: '20px', // Increase font size here
+                    color: '#000000',
+                }
+            },
+            subtitle: {
+                text: 'Organization Count',
+                useHTML: true, // Ensures styles apply properly
+                style: {
+                    fontSize: '20px',
+                    fontWeight: 'bold',
+                    // backgroundColor: '#d2b48c', // Red background
+                    color: '#000000', // Black text color
+                    padding: '5px', // Adds space around the text for better visibility
+                    borderRadius: '5px', // Optional, adds rounded corners
+                    display: 'inline-block' // Ensures background color wraps the text
+                }
+            },
+            plotOptions: {
+                pie: {
+                    innerSize: '85%',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    colors: ['#d2b48c'] // Sand color
+                }
+            },
+            series: [{
+                name: 'Organisations',
+                colorByPoint: true,
+                data: [{
+                    name: 'Organisations',
+                    y: {{ organisation_count }}
+                }]
+            }]
+        });
+
+        Highcharts.chart('container3', {
+            chart: {
+                type: 'pie',
+                backgroundColor: 'transparent' // Ensure no background
+            },
+            title: {
+                text: 'Relief Camp <br> Count: <BR>{{ relief_camp_count }}',
+                verticalAlign: 'middle',
+                floating: true,
+                
+                y: 35,
+                style: {
+                    fontSize: '20px' // Increase font size here
+                }
+            },
+            subtitle: {
+                text: 'Relief Camp Count ',
+                useHTML: true, // Ensures styles apply properly
+                style: {
+                    fontSize: '20px',
+                    fontWeight: 'bold',
+                    // backgroundColor: '#d2b48c', // Red background
+                    color: '#000000', // Black text color
+                    padding: '5px', // Adds space around the text for better visibility
+                    borderRadius: '5px', // Optional, adds rounded corners
+                    display: 'inline-block' // Ensures background color wraps the text
+                }
+            },
+            plotOptions: {
+                pie: {
+                    innerSize: '85%',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    colors: ['#68a599'] // Sand color
+                }
+            },
+            series: [{
+                name: 'Relief Camps',
+                colorByPoint: true,
+                data: [{
+                    name: 'Relief Camps',
+                    y: {{ relief_camp_count }}
+                }]
+            }]
+        });
+    </script>
+</div>
+
+
+             <iframe>
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763004.1442258773!2d73.75781335155433!3d18.520430392090314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be85b0c7e0eeef3%3A0x1f7e8d10bc92bbbc!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1666181682555!5m2!1sen!2sin"
+                width="100%" height="390" frameborder="0" style="border:0" allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="primary-button">
+                    <a href="#home">Back To Top</a>
                 </div>
-                </div>
+                <ul>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google"></i></a></li>
+                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                </ul>
+                <p>Copyright &copy; 2019 Company Name
+
+                    - Design: <a rel="nofollow noopener" href="https://templatemo.com"><em>TemplateMo</em></a></p>
             </div>
         </div>
     </div>
+</footer>
 
-    <footer> 
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="primary-button">
-                        <a href="#home">Back To Top</a>
-                    </div>
-                    <ul>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google"></i></a></li>
-                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                    </ul>
-                    <p>Copyright &copy; 2019 Company Name 
-            
-            		- Design: <a rel="nofollow noopener" href="https://templatemo.com"><em>TemplateMo</em></a></p>
-                </div>
-            </div>
-        </div>
-     </footer> 
-
-    <script>
-        function openCity(cityName) {
-            var i;
-            var x = document.getElementsByClassName("city");
-            for (i = 0; i < x.length; i++) {
-               x[i].style.display = "none";  
-            }
-            document.getElementById(cityName).style.display = "block";  
+<script>
+    function openCity(cityName) {
+        var i;
+        var x = document.getElementsByClassName("city");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
         }
-    </script>
+        document.getElementById(cityName).style.display = "block";
+    }
+</script>
 
-    <script>
-        $(document).ready(function(){
-          // Add smooth scrolling to all links
-          $(".fixed-side-navbar a, .primary-button a").on('click', function(event) {
+<script>
+    $(document).ready(function () {
+        // Add smooth scrolling to all links
+        $(".fixed-side-navbar a, .primary-button a").on('click', function (event) {
 
             // Make sure this.hash has a value before overriding default behavior
             if (this.hash !== "") {
-              // Prevent default anchor click behavior
-              event.preventDefault();
+                // Prevent default anchor click behavior
+                event.preventDefault();
 
-              // Store hash
-              var hash = this.hash;
+                // Store hash
+                var hash = this.hash;
 
-              // Using jQuery's animate() method to add smooth page scroll
-              // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-              $('html, body').animate({
-                scrollTop: $(hash).offset().top
-              }, 800, function(){
-           
-                // Add hash (#) to URL when done scrolling (default click behavior)
-                window.location.hash = hash;
-              });
+                // Using jQuery's animate() method to add smooth page scroll
+                // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 800, function () {
+
+                    // Add hash (#) to URL when done scrolling (default click behavior)
+                    window.location.hash = hash;
+                });
             } // End if
-          });
         });
-    </script>
+    });
+</script>
 
 {% endblock content %}

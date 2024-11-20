@@ -3,11 +3,22 @@ from django.contrib.auth.models import User
 from .models import VolunteerProfile, OrganisationProfile,ReliefCampProfile
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.hashers import make_password
+import matplotlib.pyplot as plt
+from io import BytesIO
+import base64
+import matplotlib
+matplotlib.use('Agg')
 
 # Create your views here.
 
 def index(request):
-    return render(request, 'index.html',context={})
+    relief_camp_count = ReliefCampProfile.objects.all().count()
+    organisation_count = OrganisationProfile.objects.all().count()
+    volunteer_count = VolunteerProfile.objects.all().count()
+    context={'volunteer_count': volunteer_count,'organisation_count':organisation_count,'relief_camp_count':relief_camp_count,
+             }
+
+    return render(request, 'index.html',context)
 def home(request):
     return render(request, 'index.html',context={})
 def user_login(request):
@@ -196,4 +207,54 @@ def logout_view(request):
     logout(request)  # This will log the user out
     return redirect('home')  # Redirect to the login page (or any other page)
         
+#############
+
+import matplotlib.pyplot as plt
+from io import BytesIO
+import base64
+
+def generate_pie_chart(sizes, labels, colors):
+    fig, ax = plt.subplots()
+    ax.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=90)
+    ax.axis('equal')  # Equal aspect ratio ensures the pie is drawn as a circle
+    buffer = BytesIO()
+    plt.savefig(buffer, format='png')
+    buffer.seek(0)
+    image_base64 = base64.b64encode(buffer.getvalue()).decode('utf-8')
+    buffer.close()
+    plt.close(fig)  # Close the figure to avoid memory issues
+    return image_base64
+
+def dashboard_view(request):
+    # Fetch counts
+    volunteer_count = VolunteerProfile.objects.all().count()
+    relief_camp_count = ReliefCampProfile.objects.count()
+    organisation_count = OrganisationProfile.objects.count()
+    print(volunteer_count)
+    # Debug print statements
+    print("Dashboard View - Volunteer Count:", volunteer_count)
+    print("Dashboard View - Relief Camp Count:", relief_camp_count)
+    print("Dashboard View - Organisation Count:", organisation_count)
+
+    # Generate pie charts (optional)
+    volunteer_chart = generate_pie_chart([volunteer_count], ['Volunteers'], ['#ff9999']) if volunteer_count > 0 else None
+    relief_camp_chart = generate_pie_chart([relief_camp_count], ['Relief Camps'], ['#66b3ff']) if relief_camp_count > 0 else None
+    organisation_chart = generate_pie_chart([organisation_count], ['Organisations'], ['#99ff99']) if organisation_count > 0 else None
+
+    # Pass data to the template
+    context = {
+        'volunteer_count': volunteer_count,
+        'relief_camp_count': relief_camp_count,
+        'organisation_count': organisation_count,
+        'volunteer_chart': volunteer_chart,
+        'relief_camp_chart': relief_camp_chart,
+        'organisation_chart': organisation_chart,
+    
+    }
+
+    print("Context Data:", context)  # Debug log the context
+
+    return render(request,'index.html', context)
+
+
 
