@@ -7,17 +7,18 @@
 {% endblock extrahead %}
 
 {% block content %}
-<div class="row">
-    {% for item in accepted_requests %}
-        <div class="col-md-4">
-            <div class="card mb-4" style="width: 18rem;">
+<div class="container">
+    <div class="row">
+        {% for item in accepted_requests %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
                 <div class="card-body">
-                    {% if item.org_id.org_image %}
-                        <img src="{{ item.org_id.org_image.url }}" alt="Organization Image" class="img-fluid mb-2">
-                    {% endif %}
-                    <p class="text-secondary mb-1">{{ item.org_id.org_name }}</p>
-                    <p class="text-muted font-size-sm">{{ item.org_id.address }}</p>
-                    
+            {% if item.org_id.org_image %}
+                <img src="{{ item.org_id.org_image.url }}" alt="Organization Image" class="img-fluid mb-2">
+            {% endif %}
+            <p class="text-secondary mb-1">{{ item.org_id.org_name }}</p>
+            <p class="text-muted font-size-sm">{{ item.org_id.address }}</p>
+
                     <p class="card-text" id="card-text-{{ forloop.counter }}" style="display: none;">
                         <strong>Address:</strong> {{ item.resourceRequest_id.delivery_address }}<br>
                         <strong>Resource Type:</strong> {{ item.resourceRequest_id.resource_type }}<br>
@@ -29,10 +30,8 @@
                     </p>
 
                     {% if item.resourceRequest_id.id in accepted_resource_ids %}
-                        <!-- Button is disabled if the current volunteer has accepted the request -->
                         <button class="btn btn-secondary" disabled>Accepted</button>
                     {% else %}
-                        <!-- Button is active if the current volunteer hasn't accepted the request -->
                         <a href="{% url 'volunteer_accept_request' item.resourceRequest_id.id %}" class="btn btn-info">Accept</a>
                     {% endif %}
                 </div>

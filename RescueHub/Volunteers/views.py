@@ -34,14 +34,20 @@ def Taskrequests(request):
     return render(request, "Volunteers/Taskrequests.html",context={})
 
 def card(request):
-    # Fetch requests with 'Accepted' status
-    accepted_req = organisation_accepeted_request.objects.filter(resourceRequest_id__status='Accepted')
-    
+    # Fetch requests with 'Accepted' status, including organization details
+    accepted_req = organisation_accepeted_request.objects.filter(
+        resourceRequest_id__status='Accepted'
+    ).select_related('org_id')  # Ensure 'org_id' is the correct field name for organisation FK
+
     # Get IDs of requests already accepted by the current volunteer
-    accepted_resource_ids = volunteer_accepted_request.objects.filter(volunteer_id=request.user.id).values_list('resourceRequest_id', flat=True)
-    
+    volunteer = VolunteerProfile.objects.get(user=request.user)
+    accepted_resource_ids = volunteer_accepted_request.objects.filter(
+        volunteer_id=volunteer
+    ).values_list('resourceRequest_id', flat=True)
+
     # Exclude requests already accepted by the current volunteer
-    volunteer_task = accepted_req.exclude(resourceRequest_id__in=accepted_resource_ids) 
+    volunteer_task = accepted_req.exclude(resourceRequest_id__in=accepted_resource_ids)
+    
     return render(request, "Volunteers/card.html", {'accepted_requests': volunteer_task})
 
 

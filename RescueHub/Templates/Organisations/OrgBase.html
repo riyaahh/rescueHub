@@ -20,7 +20,11 @@
     <!-- font awesome style -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}" />
     <!-- Custom styles for this template -->
-    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/forms.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/register.css' %}" />
+
+
     <!-- responsive style -->
     <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
     
@@ -63,8 +67,8 @@
         
         <ul class="nav" style="list-style: none; display: flex; gap: 20px; margin: 0;">
             <li class="nav-item"><a class="nav-link" href="organisationPortal" style="text-decoration: none; color: black;">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'cardorg' %}" style="text-decoration: none; color: black;">View Requests</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}" style="text-decoration: none; color: black;">Log Out</a></li>
-            <li class="nav-item"><a class="nav-link" href="{% url 'cardorg' %}" style="text-decoration: none; color: black;">Card org</a></li>
 
             
         </ul>
